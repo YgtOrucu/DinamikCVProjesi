@@ -1,0 +1,18 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Sertifikalar>
+<section class="resume-section" id="awards">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Sertifikalar</h2>
+        @foreach (var item in Model)
+        {
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">@item.BASLIK</h3>
+                    @if (item.ACIKLAMA != null)
+                    {<ul><li>@item.ACIKLAMA</li></ul>}
+                </div>
+                <div class="flex-shrink-0"><span class="text" style="color:darkred">@item.TARİH</span></div>
+            </div>
+        }
+    </div>
+</section>

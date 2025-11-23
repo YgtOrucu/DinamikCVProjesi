@@ -1,0 +1,48 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Hakkımda>
+@{
+    ViewBag.Title = "Hakkımda";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <style>
+        th {
+            background: #4e73df;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h2>HAKKIMDA</h2>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>AD</th>
+            <th>SOYAD</th>
+            <th>ADRES</th>
+            <th>TELEFON</th>
+            <th>MAİL</th>
+            <th>ACIKLAMA</th>
+            <th>DÜZENLE</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.AD</td>
+                <td>@item.SOYAD</td>
+                <td>@item.ADRES</td>
+                <td>@item.TELEFON</td>
+                <td>@item.MAİL</td>
+                <td>@item.ACIKLAMA.Substring(0, 55) ...</td>
+                <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Beceriler>
+
+<br />
+<h3 style="margin:3rem 0">BECERİLERİM</h3>
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="">
+            <div class="skill-head">
+                <div class="skill-title">
+                    <ul>
+                        <li class="skill-name">@item.BECERİLER</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+</div>

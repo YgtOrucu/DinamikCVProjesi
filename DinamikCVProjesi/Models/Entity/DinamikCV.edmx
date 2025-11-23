@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_UdemyAdminPanelliDinamikCVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KULLANICIAD" Type="varchar" MaxLength="20" />
+          <Property Name="SIFRE" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBL_Beceriler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BECERİLER" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBL_Deneyimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASLIK" Type="varchar" MaxLength="100" />
+          <Property Name="ALTBASLIK" Type="varchar" MaxLength="100" />
+          <Property Name="ACIKLAMA" Type="varchar(max)" />
+          <Property Name="TARİH" Type="varchar" MaxLength="100" />
+          <Property Name="Kullanılan Diller" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TBL_Egitimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASLIK" Type="varchar" MaxLength="100" />
+          <Property Name="ALTBASLIK1" Type="varchar" MaxLength="100" />
+          <Property Name="ALTBASLIK2" Type="varchar" MaxLength="100" />
+          <Property Name="NOT ORT" Type="varchar" MaxLength="10" />
+          <Property Name="TARİH" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBL_Hakkımda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOYAD" Type="nvarchar" MaxLength="50" />
+          <Property Name="ADRES" Type="nvarchar" MaxLength="100" />
+          <Property Name="TELEFON" Type="nvarchar" MaxLength="50" />
+          <Property Name="MAİL" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACIKLAMA" Type="nvarchar(max)" />
+          <Property Name="RESİM" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TBL_Hobilerim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACIKLAMA1" Type="varchar" MaxLength="500" />
+          <Property Name="ACIKLAMA2" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TBL_İletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADSOYAD" Type="varchar" MaxLength="100" />
+          <Property Name="MAİL" Type="varchar" MaxLength="50" />
+          <Property Name="KONU" Type="varchar" MaxLength="100" />
+          <Property Name="MESAJ" Type="varchar" MaxLength="1000" />
+          <Property Name="TARİH" Type="date" />
+        </EntityType>
+        <EntityType Name="TBL_Sertifikalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="250" />
+          <Property Name="BASLIK" Type="varchar" MaxLength="100" />
+          <Property Name="TARİH" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_Yetenek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YETENEK" Type="varchar" MaxLength="100" />
+          <Property Name="YUZDE" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityContainer Name="DB_UdemyAdminPanelliDinamikCVModelStoreContainer">
+          <EntitySet Name="TBL_Admin" EntityType="Self.TBL_Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Beceriler" EntityType="Self.TBL_Beceriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Deneyimler" EntityType="Self.TBL_Deneyimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Egitimler" EntityType="Self.TBL_Egitimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Hakkımda" EntityType="Self.TBL_Hakkımda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Hobilerim" EntityType="Self.TBL_Hobilerim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_İletisim" EntityType="Self.TBL_İletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Sertifikalar" EntityType="Self.TBL_Sertifikalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Yetenek" EntityType="Self.TBL_Yetenek" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_UdemyAdminPanelliDinamikCVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KULLANICIAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_Deneyimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ALTBASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TARİH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Kullanılan_Diller" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_Egitimler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ALTBASLIK1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ALTBASLIK2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NOT_ORT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TARİH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_Hakkımda">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADRES" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MAİL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RESİM" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_Hobilerim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACIKLAMA1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ACIKLAMA2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_İletisim">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADSOYAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MAİL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KONU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MESAJ" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="TARİH" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TBL_Sertifikalar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="BASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TARİH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_Yetenek">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YETENEK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="YUZDE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DB_UdemyAdminPanelliDinamikCVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_Admin" EntityType="Self.TBL_Admin" />
+          <EntitySet Name="TBL_Deneyimler" EntityType="Self.TBL_Deneyimler" />
+          <EntitySet Name="TBL_Egitimler" EntityType="Self.TBL_Egitimler" />
+          <EntitySet Name="TBL_Hakkımda" EntityType="Self.TBL_Hakkımda" />
+          <EntitySet Name="TBL_Hobilerim" EntityType="Self.TBL_Hobilerim" />
+          <EntitySet Name="TBL_İletisim" EntityType="Self.TBL_İletisim" />
+          <EntitySet Name="TBL_Sertifikalar" EntityType="Self.TBL_Sertifikalar" />
+          <EntitySet Name="TBL_Yetenek" EntityType="Self.TBL_Yetenek" />
+          <EntitySet Name="TBL_Beceriler" EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Beceriler" />
+        </EntityContainer>
+        <EntityType Name="TBL_Beceriler">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BECERİLER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_UdemyAdminPanelliDinamikCVModelStoreContainer" CdmEntityContainer="DB_UdemyAdminPanelliDinamikCVEntities">
+          <EntitySetMapping Name="TBL_Admin">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Admin">
+              <MappingFragment StoreEntitySet="TBL_Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KULLANICIAD" ColumnName="KULLANICIAD" />
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Deneyimler">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Deneyimler">
+              <MappingFragment StoreEntitySet="TBL_Deneyimler">
+                <ScalarProperty Name="Kullanılan_Diller" ColumnName="Kullanılan Diller" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
+                <ScalarProperty Name="ALTBASLIK" ColumnName="ALTBASLIK" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Egitimler">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Egitimler">
+              <MappingFragment StoreEntitySet="TBL_Egitimler">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
+                <ScalarProperty Name="ALTBASLIK1" ColumnName="ALTBASLIK1" />
+                <ScalarProperty Name="ALTBASLIK2" ColumnName="ALTBASLIK2" />
+                <ScalarProperty Name="NOT_ORT" ColumnName="NOT ORT" />
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Hakkımda">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Hakkımda">
+              <MappingFragment StoreEntitySet="TBL_Hakkımda">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="MAİL" ColumnName="MAİL" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="RESİM" ColumnName="RESİM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Hobilerim">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Hobilerim">
+              <MappingFragment StoreEntitySet="TBL_Hobilerim">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACIKLAMA1" ColumnName="ACIKLAMA1" />
+                <ScalarProperty Name="ACIKLAMA2" ColumnName="ACIKLAMA2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_İletisim">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_İletisim">
+              <MappingFragment StoreEntitySet="TBL_İletisim">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ADSOYAD" ColumnName="ADSOYAD" />
+                <ScalarProperty Name="MAİL" ColumnName="MAİL" />
+                <ScalarProperty Name="KONU" ColumnName="KONU" />
+                <ScalarProperty Name="MESAJ" ColumnName="MESAJ" />
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Sertifikalar">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Sertifikalar">
+              <MappingFragment StoreEntitySet="TBL_Sertifikalar">
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+                <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Yetenek">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Yetenek">
+              <MappingFragment StoreEntitySet="TBL_Yetenek">
+                <ScalarProperty Name="YUZDE" ColumnName="YUZDE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="YETENEK" ColumnName="YETENEK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Beceriler">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Beceriler">
+              <MappingFragment StoreEntitySet="TBL_Beceriler">
+                <ScalarProperty Name="BECERİLER" ColumnName="BECERİLER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

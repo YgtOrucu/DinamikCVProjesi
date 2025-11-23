@@ -1,0 +1,34 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Deneyimler>
+
+
+
+<section class="resume-section" id="experience">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Deneyimler</h2>
+        @foreach (var item in Model)
+        {
+            var parts = item.ACIKLAMA?.Split(new[] { '.' }, System.StringSplitOptions.RemoveEmptyEntries)
+                                      .Select(p => p.Trim())
+                                      .Where(p => !string.IsNullOrWhiteSpace(p))
+                                      .ToArray() ?? Array.Empty<string>();
+
+
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                    <h3 class="mb-0">@item.BASLIK</h3>
+                    <div class="subheading mb-3">@item.ALTBASLIK</div>
+                    <ul>
+                        @foreach (var p in parts)
+                        {
+                            <li>@p.</li>
+                        }
+                    </ul>
+                    <br />
+                    <p> <span style="color: black;font-family: 'Saira Extra Condensed';font-size: 20px;">Kullandığım Teknolojiler : </span> @item.Kullanılan_Diller</p>
+                </div>
+                <div class="flex-shrink-0"><span class="text" style="color:darkred">@item.TARİH</span></div>
+            </div>
+        }
+    </div>
+</section>

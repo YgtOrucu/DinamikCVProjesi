@@ -1,0 +1,101 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Yetenek>
+<section class="resume-section" id="skills">
+    <div class="resume-section-content">
+        <h2 class="mb-5">Yetenekler</h2>
+        <div class="skills-grid">
+            @foreach (var item in Model)
+            {
+                var yuzde = item.YUZDE;
+
+                <div class="skill-card" data-percent="@yuzde">
+                    <div class="skill-head">
+                        <div class="skill-title">
+                            <div>
+                                <div class="skill-name">@item.YETENEK</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="percent">0%</div>
+                        </div>
+                    </div>
+
+                    <div class="bar-wrap">
+                        <div class="bar"></div>
+                    </div>
+                </div>
+            }
+        </div>
+       @Html.Action("Beceriler", "AnaSayfa")
+    </div>
+</section>
+
+<style>
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 50px;
+    }
+
+    .skill-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .skill-name {
+        font-weight: 600;
+    }
+
+    .skill-meta {
+        font-size: 12px;
+        color: #aaa;
+    }
+
+    .bar-wrap {
+        width: 100%;
+        height: 10px;
+        background: #222;
+        border-radius: 999px;
+        margin-top: 12px;
+        overflow: hidden;
+    }
+
+    .bar {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg,#7c3aed,#06b6d4);
+        transition: width 1s ease;
+    }
+
+    .percent {
+        font-weight: 700;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const skills = document.querySelectorAll(".skill-card")
+        skills.forEach((el, i) => {
+            const p = Number(el.dataset.percent)
+            const bar = el.querySelector(".bar")
+            const label = el.querySelector(".percent")
+
+            setTimeout(() => {
+                bar.style.width = p + "%";
+            }, i * 120);
+
+            let cur = 0;
+            const step = Math.max(1, Math.floor(p / 30));
+            const counter = setInterval(() => {
+                cur += step;
+                if (cur >= p) { cur = p; clearInterval(counter) }
+                label.textContent = cur + "%";
+            }, 20)
+        });
+    });
+</script>
