@@ -16,37 +16,37 @@ namespace DinamikCVProjesi.Controllers
         //Hakkımda
         public ActionResult Index()
         {
-            var values = cVEntities.TBL_Hakkımda.ToList();
+            var values = cVEntities.TBL_Hakkımda.Where(x=>x.DURUM == true).ToList();
             return View(values);
         }
         public PartialViewResult Deneyim()
         {
-            var deneyim = cVEntities.TBL_Deneyimler.ToList();     
+            var deneyim = cVEntities.TBL_Deneyimler.Where(x => x.DURUM == true).ToList();
             return PartialView(deneyim);
         }
         public PartialViewResult Egitimler()
         {
-            var egıtım = cVEntities.TBL_Egitimler.ToList();
+            var egıtım = cVEntities.TBL_Egitimler.Where(x => x.DURUM == true).ToList();
             return PartialView(egıtım);
         }
         public PartialViewResult Yetenekler()
         {
-            var yetenek = cVEntities.TBL_Yetenek.ToList();
+            var yetenek = cVEntities.TBL_Yetenek.Where(x => x.DURUM == true).ToList();
             return PartialView(yetenek);
         }
         public PartialViewResult Hobiler()
         {
-            var hobiler = cVEntities.TBL_Hobilerim.ToList();
+            var hobiler = cVEntities.TBL_Hobilerim.Where(x => x.DURUM == true).ToList();
             return PartialView(hobiler);
         }
         public PartialViewResult Sertifikalar()
         {
-            var sertifika = cVEntities.TBL_Sertifikalar.ToList();
+            var sertifika = cVEntities.TBL_Sertifikalar.Where(x => x.DURUM == true).ToList();
             return PartialView(sertifika);
         }
         public PartialViewResult Beceriler()
         {
-            var beceriler = cVEntities.TBL_Beceriler.ToList();
+            var beceriler = cVEntities.TBL_Beceriler.Where(x => x.DURUM == true).ToList();
             return PartialView(beceriler);
         }
 

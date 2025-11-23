@@ -2366,6 +2366,7 @@
     <Content Include="Views\Admin\Deneyim.cshtml" />
     <Content Include="Views\Admin\DeneyimEkle.cshtml" />
     <Content Include="Views\Admin\DeneyimGetir.cshtml" />
+    <Content Include="Views\Admin\HakkımdaGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

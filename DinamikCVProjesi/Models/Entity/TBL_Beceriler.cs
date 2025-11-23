@@ -16,5 +16,6 @@ namespace DinamikCVProjesi.Models.Entity
     {
         public int ID { get; set; }
         public string BECERİLER { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     }
 }

@@ -26,6 +26,7 @@
             <th>AÇIKLAMA</th>
             <th>TARİH</th>
             <th>KULLANILAN DİLLER</th>
+            <th>DURUM</th>
             <th>SİL</th>
             <th>DÜZENLE</th>
         </tr>
@@ -35,9 +36,24 @@
                 <td>@item.ID</td>
                 <td>@item.BASLIK</td>
                 <td>@item.ALTBASLIK</td>
-                <td>@item.ACIKLAMA.Substring(0, 25) ...</td>
+                @if (item.ACIKLAMA.Length >= 55)
+                {
+                    <td>@item.ACIKLAMA.Substring(0, 55) ...</td>
+                }
+                else
+                {
+                    <td>@item.ACIKLAMA</td>
+                }
                 <td>@item.TARİH</td>
-                <td>@item.Kullanılan_Diller.Substring(0, 50) ...</td>
+                @if (item.Kullanılan_Diller.Length >= 50)
+                {
+                    <td>@item.Kullanılan_Diller.Substring(0, 50) ...</td>
+                }
+                else
+                {
+                    <td>@item.Kullanılan_Diller</td>
+                }
+                <td>@(item.DURUM == true ? "Aktif" : "Pasif")</td>
                 <td><a href="~/Admin/DeneyimSil/@item.ID" class="btn btn-danger">Sil</a></td>
                 <td><a href="~/Admin/DeneyimGetir/@item.ID" class="btn btn-warning">Düzenle</a></td>
             </tr>

@@ -27,6 +27,8 @@
             <th>TELEFON</th>
             <th>MAİL</th>
             <th>ACIKLAMA</th>
+            <th>DURUM</th>
+            <th>SİL</th>
             <th>DÜZENLE</th>
         </tr>
         @foreach (var item in Model)
@@ -38,11 +40,22 @@
                 <td>@item.ADRES</td>
                 <td>@item.TELEFON</td>
                 <td>@item.MAİL</td>
-                <td>@item.ACIKLAMA.Substring(0, 55) ...</td>
-                <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+
+                @if (item.ACIKLAMA.Length >= 55)
+                {
+                    <td>@item.ACIKLAMA.Substring(0, 55) ...</td>
+                }
+                else
+                {
+                    <td>@item.ACIKLAMA</td>
+                }
+                <td>@(item.DURUM == true ? "Aktif" : "Pasif")</td>
+                <td><a href="~/Admin/HakkımdaSil/@item.ID" class="btn btn-danger">Sil</a></td>
+                <td><a href="~/Admin/HakkımdaGetir/@item.ID" class="btn btn-warning">Düzenle</a></td>
             </tr>
         }
     </table>
+    <a href="~/Admin/HakkımdaEkle" class="btn btn-success">Ekle</a>
 </body>
 </html>
 

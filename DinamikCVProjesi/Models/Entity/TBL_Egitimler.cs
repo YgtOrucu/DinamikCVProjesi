@@ -20,5 +20,6 @@ namespace DinamikCVProjesi.Models.Entity
         public string ALTBASLIK2 { get; set; }
         public string NOT_ORT { get; set; }
         public string TARİH { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     }
 }

@@ -8,7 +8,7 @@
 <br />
 
 @using (Html.BeginForm("DeneyimGüncelle", "Admin", FormMethod.Post))
- {
+{
     @Html.LabelFor(x => x.ID)
     @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "width: 60%" })
     <br />
@@ -27,6 +27,9 @@
     @Html.LabelFor(x => x.Kullanılan_Diller)
     @Html.TextBoxFor(x => x.Kullanılan_Diller, new { @class = "form-control", @style = "width: 60%" })
     <br />
+    @Html.LabelFor(x => x.DURUM)
+    @Html.DropDownListFor(x => x.DURUM, (IEnumerable<SelectListItem>)ViewBag.Durum, new { @class = "form-control", @style = "width: 60%" })
+    <br />
     <input type="submit" value="Güncelle" class="btn btn-success" />
- }
+}
 

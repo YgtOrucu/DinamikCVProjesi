@@ -17,5 +17,6 @@ namespace DinamikCVProjesi.Models.Entity
         public int ID { get; set; }
         public string KULLANICIAD { get; set; }
         public string SIFRE { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     }
 }

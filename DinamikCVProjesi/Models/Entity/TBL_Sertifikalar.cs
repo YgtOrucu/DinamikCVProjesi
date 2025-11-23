@@ -18,5 +18,6 @@ namespace DinamikCVProjesi.Models.Entity
         public string ACIKLAMA { get; set; }
         public string BASLIK { get; set; }
         public string TARİH { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     }
 }

@@ -21,6 +21,6 @@ namespace DinamikCVProjesi.Models.Entity
         public string TELEFON { get; set; }
         public string MAİL { get; set; }
         public string ACIKLAMA { get; set; }
-        public string RESİM { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     }
 }

@@ -16,13 +16,16 @@
     @Html.TextBoxFor(x => x.ALTBASLIK, new { @class = "form-control", @style = "width: 60%" })
     <br />
     @Html.LabelFor(x => x.ACIKLAMA)
-    @Html.TextAreaFor(x => x.ACIKLAMA, new { @class = "form-control", @style = "width: 60%" })
+    @Html.TextAreaFor(x => x.ACIKLAMA, 10, 0, new { @class = "form-control", @style = "width: 60%" })
     <br />
     @Html.LabelFor(x => x.TARİH)
     @Html.TextBoxFor(x => x.TARİH, new { @class = "form-control", @style = "width: 60%" })
     <br />
     @Html.LabelFor(x => x.Kullanılan_Diller)
     @Html.TextBoxFor(x => x.Kullanılan_Diller, new { @class = "form-control", @style = "width: 60%" })
+    <br />
+    @Html.LabelFor(x => x.DURUM)
+    @Html.DropDownListFor(x => x.DURUM, (List<SelectListItem>)ViewBag.Durum, "Seçiniz", new { @class = "form-control", @style = "width: 60%" })
     <br />
     <input type="submit" value="Ekle" class="btn btn-success" />
 }

@@ -17,5 +17,6 @@ namespace DinamikCVProjesi.Models.Entity
         public int ID { get; set; }
         public string YETENEK { get; set; }
         public string YUZDE { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     }
 }

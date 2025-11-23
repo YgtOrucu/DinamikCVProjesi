@@ -1,0 +1,37 @@
+﻿@model DinamikCVProjesi.Models.Entity.TBL_Hakkımda
+@{
+    ViewBag.Title = "HakkımdaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımda Getir</h2>
+<br />
+
+@using (Html.BeginForm("HakkımdaGüncelle", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.AD)
+    @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.SOYAD)
+    @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.ADRES)
+    @Html.TextBoxFor(x => x.ADRES, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.TELEFON)
+    @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.MAİL)
+    @Html.TextBoxFor(x => x.MAİL, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.ACIKLAMA)
+    @Html.TextBoxFor(x => x.ACIKLAMA, new { @class = "form-control", @style = "witdt = 60%" })
+    <br />
+    @Html.LabelFor(x => x.DURUM)
+    @Html.DropDownListFor(x => x.DURUM, (IEnumerable<SelectListItem>)ViewBag.Durum, new { @class = "form-control", @style = "width: 60%" })
+    <br />
+    <input type="submit" value="Güncelle" class="btn btn-success" />
+}

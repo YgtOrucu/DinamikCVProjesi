@@ -12,6 +12,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KULLANICIAD" Type="varchar" MaxLength="20" />
           <Property Name="SIFRE" Type="varchar" MaxLength="20" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Beceriler">
           <Key>
@@ -19,6 +20,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="BECERİLER" Type="varchar" MaxLength="100" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Deneyimler">
           <Key>
@@ -30,6 +32,7 @@
           <Property Name="ACIKLAMA" Type="varchar(max)" />
           <Property Name="TARİH" Type="varchar" MaxLength="100" />
           <Property Name="Kullanılan Diller" Type="varchar" MaxLength="250" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Egitimler">
           <Key>
@@ -41,6 +44,7 @@
           <Property Name="ALTBASLIK2" Type="varchar" MaxLength="100" />
           <Property Name="NOT ORT" Type="varchar" MaxLength="10" />
           <Property Name="TARİH" Type="varchar" MaxLength="100" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Hakkımda">
           <Key>
@@ -53,7 +57,7 @@
           <Property Name="TELEFON" Type="nvarchar" MaxLength="50" />
           <Property Name="MAİL" Type="nvarchar" MaxLength="50" />
           <Property Name="ACIKLAMA" Type="nvarchar(max)" />
-          <Property Name="RESİM" Type="varchar" MaxLength="150" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Hobilerim">
           <Key>
@@ -62,6 +66,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ACIKLAMA1" Type="varchar" MaxLength="500" />
           <Property Name="ACIKLAMA2" Type="varchar" MaxLength="500" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_İletisim">
           <Key>
@@ -82,6 +87,7 @@
           <Property Name="ACIKLAMA" Type="varchar" MaxLength="250" />
           <Property Name="BASLIK" Type="varchar" MaxLength="100" />
           <Property Name="TARİH" Type="varchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Yetenek">
           <Key>
@@ -90,6 +96,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="YETENEK" Type="varchar" MaxLength="100" />
           <Property Name="YUZDE" Type="varchar" MaxLength="3" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityContainer Name="DB_UdemyAdminPanelliDinamikCVModelStoreContainer">
           <EntitySet Name="TBL_Admin" EntityType="Self.TBL_Admin" Schema="dbo" store:Type="Tables" />
@@ -113,6 +120,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KULLANICIAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_Deneyimler">
           <Key>
@@ -124,6 +132,7 @@
           <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TARİH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Kullanılan_Diller" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_Egitimler">
           <Key>
@@ -135,6 +144,7 @@
           <Property Name="ALTBASLIK2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="NOT_ORT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TARİH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_Hakkımda">
           <Key>
@@ -147,7 +157,7 @@
           <Property Name="TELEFON" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MAİL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="RESİM" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_Hobilerim">
           <Key>
@@ -156,6 +166,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ACIKLAMA1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
           <Property Name="ACIKLAMA2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_İletisim">
           <Key>
@@ -176,6 +187,7 @@
           <Property Name="ACIKLAMA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="BASLIK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="TARİH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_Yetenek">
           <Key>
@@ -184,6 +196,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="YETENEK" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="YUZDE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityContainer Name="DB_UdemyAdminPanelliDinamikCVEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TBL_Admin" EntityType="Self.TBL_Admin" />
@@ -202,6 +215,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="BECERİLER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -212,6 +226,7 @@
           <EntitySetMapping Name="TBL_Admin">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Admin">
               <MappingFragment StoreEntitySet="TBL_Admin">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KULLANICIAD" ColumnName="KULLANICIAD" />
                 <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
@@ -221,6 +236,7 @@
           <EntitySetMapping Name="TBL_Deneyimler">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Deneyimler">
               <MappingFragment StoreEntitySet="TBL_Deneyimler">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="Kullanılan_Diller" ColumnName="Kullanılan Diller" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
@@ -233,6 +249,7 @@
           <EntitySetMapping Name="TBL_Egitimler">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Egitimler">
               <MappingFragment StoreEntitySet="TBL_Egitimler">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
                 <ScalarProperty Name="ALTBASLIK1" ColumnName="ALTBASLIK1" />
@@ -245,6 +262,7 @@
           <EntitySetMapping Name="TBL_Hakkımda">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Hakkımda">
               <MappingFragment StoreEntitySet="TBL_Hakkımda">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
@@ -252,13 +270,13 @@
                 <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
                 <ScalarProperty Name="MAİL" ColumnName="MAİL" />
                 <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
-                <ScalarProperty Name="RESİM" ColumnName="RESİM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TBL_Hobilerim">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Hobilerim">
               <MappingFragment StoreEntitySet="TBL_Hobilerim">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ACIKLAMA1" ColumnName="ACIKLAMA1" />
                 <ScalarProperty Name="ACIKLAMA2" ColumnName="ACIKLAMA2" />
@@ -280,6 +298,7 @@
           <EntitySetMapping Name="TBL_Sertifikalar">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Sertifikalar">
               <MappingFragment StoreEntitySet="TBL_Sertifikalar">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="TARİH" ColumnName="TARİH" />
                 <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -290,6 +309,7 @@
           <EntitySetMapping Name="TBL_Yetenek">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Yetenek">
               <MappingFragment StoreEntitySet="TBL_Yetenek">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="YUZDE" ColumnName="YUZDE" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="YETENEK" ColumnName="YETENEK" />
@@ -299,6 +319,7 @@
           <EntitySetMapping Name="TBL_Beceriler">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Beceriler">
               <MappingFragment StoreEntitySet="TBL_Beceriler">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="BECERİLER" ColumnName="BECERİLER" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
