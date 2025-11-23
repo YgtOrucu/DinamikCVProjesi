@@ -31,12 +31,38 @@ namespace DinamikCVProjesi.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult DeneyimEkle(TBL_Deneyimler d)
         {
             deneyimler.TAdd(d);
-            return View();
+            return RedirectToAction("Deneyim");
+        }
+
+        public ActionResult DeneyimSil(int id)
+        {
+            var deletedvalues = deneyimler.TGetID(id);
+            deneyimler.TDelete(deletedvalues);
+            return RedirectToAction("Deneyim");
+        }
+
+        [HttpGet]
+        public ActionResult DeneyimGetir(int id)
+        {
+            var selectedıtem = deneyimler.TGetID(id);
+            return View("DeneyimGetir", selectedıtem);
+        }
+        [HttpPost]
+        public ActionResult DeneyimGüncelle(TBL_Deneyimler d)
+        {
+            var getıtem = deneyimler.TGetID(d.ID);
+            getıtem.BASLIK = d.BASLIK;
+            getıtem.ALTBASLIK = d.ALTBASLIK;
+            getıtem.ACIKLAMA = d.ACIKLAMA;
+            getıtem.TARİH = d.TARİH;
+            getıtem.Kullanılan_Diller = d.Kullanılan_Diller;
+
+            deneyimler.TUpdate(getıtem);
+            return RedirectToAction("Deneyim");
         }
         #endregion
     }

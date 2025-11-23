@@ -1,14 +1,17 @@
 ﻿@model DinamikCVProjesi.Models.Entity.TBL_Deneyimler
 @{
-    ViewBag.Title = "DeneyimEkle";
+    ViewBag.Title = "DeneyimGetir";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Deneyim Ekle</h2>
+<h2>Deneyim Güncelleme</h2>
 <br />
 
-@using (Html.BeginForm("DeneyimEkle", "Admin", FormMethod.Post))
-{
+@using (Html.BeginForm("DeneyimGüncelle", "Admin", FormMethod.Post))
+ {
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "width: 60%" })
+    <br />
     @Html.LabelFor(x => x.BASLIK)
     @Html.TextBoxFor(x => x.BASLIK, new { @class = "form-control", @style = "width: 60%" })
     <br />
@@ -16,7 +19,7 @@
     @Html.TextBoxFor(x => x.ALTBASLIK, new { @class = "form-control", @style = "width: 60%" })
     <br />
     @Html.LabelFor(x => x.ACIKLAMA)
-    @Html.TextAreaFor(x => x.ACIKLAMA, new { @class = "form-control", @style = "width: 60%" })
+    @Html.TextAreaFor(x => x.ACIKLAMA, 10, 0, new { @class = "form-control", @style = "width: 60%" })
     <br />
     @Html.LabelFor(x => x.TARİH)
     @Html.TextBoxFor(x => x.TARİH, new { @class = "form-control", @style = "width: 60%" })
@@ -24,6 +27,6 @@
     @Html.LabelFor(x => x.Kullanılan_Diller)
     @Html.TextBoxFor(x => x.Kullanılan_Diller, new { @class = "form-control", @style = "width: 60%" })
     <br />
-    <input type="submit" value="Ekle" class="btn btn-success" />
-}
+    <input type="submit" value="Güncelle" class="btn btn-success" />
+ }
 

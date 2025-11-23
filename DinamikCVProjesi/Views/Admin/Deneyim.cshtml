@@ -26,6 +26,7 @@
             <th>AÇIKLAMA</th>
             <th>TARİH</th>
             <th>KULLANILAN DİLLER</th>
+            <th>SİL</th>
             <th>DÜZENLE</th>
         </tr>
         @foreach (var item in Model)
@@ -37,11 +38,12 @@
                 <td>@item.ACIKLAMA.Substring(0, 25) ...</td>
                 <td>@item.TARİH</td>
                 <td>@item.Kullanılan_Diller.Substring(0, 50) ...</td>
-                <td><a href="#" class="btn btn-warning">Düzenle</a></td>
+                <td><a href="~/Admin/DeneyimSil/@item.ID" class="btn btn-danger">Sil</a></td>
+                <td><a href="~/Admin/DeneyimGetir/@item.ID" class="btn btn-warning">Düzenle</a></td>
             </tr>
         }
     </table>
-    <a href="~/Admin/Ekle" class="btn btn-success">Ekle</a>
+    <a href="~/Admin/DeneyimEkle" class="btn btn-success">Ekle</a>
 
 </body>
 </html>

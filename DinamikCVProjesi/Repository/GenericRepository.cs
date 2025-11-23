@@ -1,6 +1,7 @@
 ﻿using DinamikCVProjesi.Models.Entity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -26,6 +27,10 @@ namespace DinamikCVProjesi.Repository
         }
         public void TUpdate(T entity)
         {
+            var updatedvalues = cVEntities.Entry(entity);
+            updatedvalues.State = EntityState.Modified;
+            cVEntities.SaveChanges();
+
         }
 
         public T TGetID(int id)
