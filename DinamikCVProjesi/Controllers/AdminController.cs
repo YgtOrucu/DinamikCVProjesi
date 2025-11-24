@@ -130,5 +130,49 @@ namespace DinamikCVProjesi.Controllers
         #endregion
 
         #endregion
+
+        #region YenetekBölümü
+        YetenekRepository yetenek = new YetenekRepository();
+        public ActionResult Yetenek()
+        {
+            var values = yetenek.List();
+            return View(values);
+        }
+
+        #region EKLE
+        [HttpGet]
+        public ActionResult YetenekEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult YetenekEkle(TBL_Yetenek y)
+        {
+            yetenek.TAdd(y);
+            return RedirectToAction("Yetenek");
+        }
+        #endregion
+
+        #region Güncelle
+        [HttpGet]
+        public ActionResult YetenekGetir(int id)
+        {
+            var getYetenek = yetenek.TGetID(id);
+            return View("YetenekGetir", getYetenek);
+        }
+
+        [HttpPost]
+        public ActionResult YetenekGüncelle(TBL_Yetenek y)
+        {
+            var updatedValue = yetenek.TGetID(y.ID);
+            updatedValue.YETENEK = y.YETENEK;
+            updatedValue.YUZDE = y.YUZDE;
+            updatedValue.DURUM = y.DURUM;
+            yetenek.TUpdate(updatedValue);
+            return RedirectToAction("Yetenek");
+        }
+        #endregion
+
+        #endregion
     }
 }

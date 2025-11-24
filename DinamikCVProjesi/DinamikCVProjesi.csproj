@@ -2368,6 +2368,9 @@
     <Content Include="Views\Admin\DeneyimGetir.cshtml" />
     <Content Include="Views\Admin\HakkımdaGetir.cshtml" />
     <Content Include="Views\Admin\HakkımdaEkle.cshtml" />
+    <Content Include="Views\Admin\Yetenek.cshtml" />
+    <Content Include="Views\Admin\YetenekEkle.cshtml" />
+    <Content Include="Views\Admin\YetenekGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

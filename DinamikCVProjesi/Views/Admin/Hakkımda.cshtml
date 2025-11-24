@@ -6,65 +6,102 @@
 }
 
 <!DOCTYPE html>
-<html lang="tr">
+<html>
 <head>
     <style>
         th {
             background: #4e73df;
             color: #fff;
         }
+
+        .card-header {
+            background-color: lightgrey;
+            color: black;
+        }
+
+        .card-header {
+            font-family: math;
+            font-size: 25px;
+        }
     </style>
 </head>
-<body>
-    <h2>HAKKIMDA</h2>
-    <br />
-    <table class="table table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>AD</th>
-            <th>SOYAD</th>
-            <th>ADRES</th>
-            <th>TELEFON</th>
-            <th>MAİL</th>
-            <th>ACIKLAMA</th>
-            <th>DURUM</th>
-            <th>DÜZENLE</th>
-            <th>SİL</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.ID</td>
-                <td>@item.AD</td>
-                <td>@item.SOYAD</td>
-                <td>@item.ADRES</td>
-                <td>@item.TELEFON</td>
-                <td>@item.MAİL</td>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Hakkımda</h3>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>AD</th>
+                                            <th>SOYAD</th>
+                                            <th>ADRES</th>
+                                            <th>TELEFON</th>
+                                            <th>MAİL</th>
+                                            <th>ACIKLAMA</th>
+                                            <th>DURUM</th>
+                                            <th>DÜZENLE</th>
+                                            <th>SİL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.AD</td>
+                                                <td>@item.SOYAD</td>
+                                                @if (item.ADRES.Length >= 20)
+                                                {
+                                                    <td>@item.ADRES.Substring(0, 20) ...</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@item.ADRES</td>
+                                                }
+                                                <td>@item.TELEFON</td>
+                                                <td>@item.MAİL</td>
 
-                @if (item.ACIKLAMA.Length >= 55)
-                {
-                    <td>@item.ACIKLAMA.Substring(0, 55) ...</td>
-                }
-                else
-                {
-                    <td>@item.ACIKLAMA</td>
-                }
-            <td>
-                @if ((bool)item.DURUM)
-                {
-                    <span class="badge bg-success text-md">Aktif</span>
-                }
-                else
-                {
-                    <span class="badge bg-danger text-md">Pasif</span>
-                }
-            </td>
-                <td><a href="~/Admin/HakkımdaGetir/@item.ID" class="btn btn-warning">Düzenle</a></td>
-                <td><a href="~/Admin/HakkımdaSil/@item.ID" class="btn btn-danger">Sil</a></td>
-            </tr>
-        }
-    </table>
-    <a href="~/Admin/HakkımdaEkle" class="btn btn-success">Ekle</a>
+                                                @if (item.ACIKLAMA.Length >= 20)
+                                                {
+                                                    <td>@item.ACIKLAMA.Substring(0, 20) ...</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>@item.ACIKLAMA</td>
+                                                }
+                                                <td>
+                                                    @if ((bool)item.DURUM)
+                                                    {
+                                                        <span class="badge bg-success text-md">Aktif</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-danger text-md">Pasif</span>
+                                                    }
+                                                </td>
+                                                <td><a href="~/Admin/HakkımdaGetir/@item.ID" class="btn btn-warning">Düzenle</a></td>
+                                                <td><a href="~/Admin/HakkımdaSil/@item.ID" class="btn btn-danger">Sil</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <a href="~/Admin/HakkımdaEkle" class="btn btn-success" style="margin-top:15px">Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
+
 

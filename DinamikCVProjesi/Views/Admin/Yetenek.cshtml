@@ -1,0 +1,106 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Yetenek>
+@{
+    ViewBag.Title = "Yetenek";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        th {
+            background: #4e73df;
+            color: #fff;
+        }
+
+        .card-header {
+            background-color: lightgrey;
+            color: black;
+        }
+
+        .card-header {
+            font-family: math;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Yetenek Listem</h3>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">ID</th>
+                                            <th style="width: 55%">Yetenek</th>
+                                            <th>ProgressBar</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th style="width: 40px">Durum</th>
+                                            <th>DÜZENLE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            int yuzde = 0;
+                                            int.TryParse(item.YUZDE, out yuzde);
+                                            string progressClass = "";
+                                            if (yuzde >= 0 && yuzde < 30)
+                                            {
+                                                progressClass = "bg-danger";
+                                            }
+                                            else if (yuzde >= 30 && yuzde < 50)
+                                            {
+                                                progressClass = "bg-warning";
+                                            }
+                                            else if (yuzde >= 50 && yuzde < 70)
+                                            {
+                                                progressClass = "bg-orange";
+                                            }
+                                            else if (yuzde >= 70 && yuzde <= 100)
+                                            {
+                                                progressClass = "bg-success";
+                                            }
+
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.YETENEK</td>
+                                                <td>
+                                                    <div class="progress progress-xs" style="margin-top:10px">
+                                                        <div class="progress-bar @progressClass" style=width:@item.YUZDE%></div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge @progressClass">@item.YUZDE%</span></td>
+                                                <td>
+                                                    @if ((bool)item.DURUM)
+                                                    {
+                                                        <span class="badge bg-success text-md">Aktif</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-danger text-md">Pasif</span>
+                                                    }
+                                                </td>
+                                                <td><a href="~/Admin/YetenekGetir/@item.ID" class="btn btn-sm btn-warning">Düzenle</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <a href="~/Admin/YetenekEkle" style="margin-top:15px" class="btn btn-success">Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
