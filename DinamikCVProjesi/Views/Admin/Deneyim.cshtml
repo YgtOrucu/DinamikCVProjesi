@@ -27,8 +27,8 @@
             <th>TARİH</th>
             <th>KULLANILAN DİLLER</th>
             <th>DURUM</th>
-            <th>SİL</th>
             <th>DÜZENLE</th>
+            <th>SİL</th>
         </tr>
         @foreach (var item in Model)
         {
@@ -53,9 +53,19 @@
                 {
                     <td>@item.Kullanılan_Diller</td>
                 }
-                <td>@(item.DURUM == true ? "Aktif" : "Pasif")</td>
-                <td><a href="~/Admin/DeneyimSil/@item.ID" class="btn btn-danger">Sil</a></td>
+                <td>
+                    @if ((bool)item.DURUM)
+                    {
+                        <span class="badge bg-success text-md">Aktif</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger text-md">Pasif</span>
+                    }
+                </td>
+
                 <td><a href="~/Admin/DeneyimGetir/@item.ID" class="btn btn-warning">Düzenle</a></td>
+                <td><a href="~/Admin/DeneyimSil/@item.ID" class="btn btn-danger">Sil</a></td>
             </tr>
         }
     </table>

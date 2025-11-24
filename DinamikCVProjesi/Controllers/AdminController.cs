@@ -18,15 +18,37 @@ namespace DinamikCVProjesi.Controllers
             var values = hakkımda.List();
             return View(values);
         }
+
+        #region EKLE
+        [HttpGet]
+        public ActionResult HakkımdaEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult HakkımdaEkle(TBL_Hakkımda h)
+        {
+            hakkımda.TAdd(h);
+            return RedirectToAction("Hakkımda");
+        }
+
+        #endregion
+
+        #region SİL
+        public ActionResult HakkımdaSil(int id)
+        {
+            var deletedvalues = hakkımda.TGetID(id);
+            hakkımda.TDelete(deletedvalues);
+            return RedirectToAction("Hakkımda");
+        }
+        #endregion
+
+        #region GÜNCELLE
         [HttpGet]
         public ActionResult HakkımdaGetir(int id)
         {
             var hakkımdadetails = hakkımda.TGetID(id);
-            ViewBag.Durum = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "True", Text = "Aktif" },
-                new SelectListItem { Value = "False", Text = "Pasif" }
-            };
             return View("HakkımdaGetir", hakkımdadetails);
         }
         [HttpPost]
@@ -44,13 +66,9 @@ namespace DinamikCVProjesi.Controllers
             hakkımda.TUpdate(updatedvalues);
             return RedirectToAction("Hakkımda");
         }
+        #endregion
 
-        public ActionResult HakkımdaSil(int id)
-        {
-            var deletedvalues = deneyimler.TGetID(id);
-            deneyimler.TDelete(deletedvalues);
-            return RedirectToAction("Hakkımda");
-        }
+
         #endregion
 
         #region DeneyimlerBölümü
@@ -61,15 +79,11 @@ namespace DinamikCVProjesi.Controllers
             return View(values);
         }
 
+        #region EKLE
+
         [HttpGet]
         public ActionResult DeneyimEkle()
         {
-            ViewBag.Durum = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "True", Text = "Aktif" },
-                new SelectListItem { Value = "False", Text = "Pasif" }
-            };
-
             return View();
         }
 
@@ -80,25 +94,25 @@ namespace DinamikCVProjesi.Controllers
             return RedirectToAction("Deneyim");
         }
 
+        #endregion
+
+        #region SİL
         public ActionResult DeneyimSil(int id)
         {
             var deletedvalues = deneyimler.TGetID(id);
             deneyimler.TDelete(deletedvalues);
             return RedirectToAction("Deneyim");
         }
+        #endregion
 
+        #region GÜNCELLE
         [HttpGet]
         public ActionResult DeneyimGetir(int id)
         {
-            var selectedıtem = deneyimler.TGetID(id);
-
-            ViewBag.Durum = new List<SelectListItem>
-            {
-                new SelectListItem { Value = "false", Text = "Pasif", Selected = selectedıtem.DURUM != true },
-                new SelectListItem { Value = "true", Text = "Aktif",Selected = selectedıtem.DURUM != false}
-            };
-            return View("DeneyimGetir", selectedıtem);
+            var selectedItem = deneyimler.TGetID(id);
+            return View("DeneyimGetir", selectedItem);
         }
+
         [HttpPost]
         public ActionResult DeneyimGüncelle(TBL_Deneyimler d)
         {
@@ -113,6 +127,8 @@ namespace DinamikCVProjesi.Controllers
             deneyimler.TUpdate(getıtem);
             return RedirectToAction("Deneyim");
         }
+        #endregion
+
         #endregion
     }
 }
