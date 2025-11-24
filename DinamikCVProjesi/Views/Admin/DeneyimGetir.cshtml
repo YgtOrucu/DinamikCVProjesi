@@ -10,7 +10,7 @@
 @using (Html.BeginForm("DeneyimGüncelle", "Admin", FormMethod.Post))
 {
     @Html.LabelFor(x => x.ID)
-    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "width: 60%" })
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "width: 60%", @readonly = "readonly" })
     <br />
     @Html.LabelFor(x => x.BASLIK)
     @Html.TextBoxFor(x => x.BASLIK, new { @class = "form-control", @style = "width: 60%" })
@@ -39,6 +39,6 @@
         </div>
     </div>
     <br />
-    <input type="submit" value="Güncelle" class="btn btn-success" />
+    <input type="submit" value="Güncelle" class="btn btn-success btn-sm" />
 }
 

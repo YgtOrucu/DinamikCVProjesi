@@ -11,10 +11,12 @@ namespace DinamikCVProjesi.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TBL_Deneyimler
     {
         public int ID { get; set; }
+        [Required(ErrorMessage ="Bu alan boş geçilemez !!!")]
         public string BASLIK { get; set; }
         public string ALTBASLIK { get; set; }
         public string ACIKLAMA { get; set; }

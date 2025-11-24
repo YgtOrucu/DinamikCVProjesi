@@ -90,6 +90,7 @@ namespace DinamikCVProjesi.Controllers
         [HttpPost]
         public ActionResult DeneyimEkle(TBL_Deneyimler d)
         {
+            if (!ModelState.IsValid)  return View(d);
             deneyimler.TAdd(d);
             return RedirectToAction("Deneyim");
         }
@@ -170,6 +171,62 @@ namespace DinamikCVProjesi.Controllers
             updatedValue.DURUM = y.DURUM;
             yetenek.TUpdate(updatedValue);
             return RedirectToAction("Yetenek");
+        }
+        #endregion
+
+        #endregion
+
+        #region EğitimBölümü
+        EgıtımRepository egıtım = new EgıtımRepository();
+        public ActionResult Egitim()
+        {
+            var values = egıtım.List();
+            return View(values);
+        }
+        #region EKLE
+        [HttpGet]
+        public ActionResult EgitimEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult EgitimEkle(TBL_Egitimler e)
+        {
+            egıtım.TAdd(e);
+            return RedirectToAction("Egitim");
+        }
+        #endregion
+
+        #region SİL
+        public ActionResult EgitimSil(int id)
+        {
+            var deletedıtem = egıtım.TGetID(id);
+            egıtım.TDelete(deletedıtem);
+            return RedirectToAction("Egitim");
+        }
+        #endregion
+
+        #region GÜNCELLE
+        [HttpGet]
+        public ActionResult EgitimGetir(int id)
+        {
+            var getEgıtım = egıtım.TGetID(id);
+            return View("EgitimGetir", getEgıtım);
+        }
+
+        [HttpPost]
+        public ActionResult EgitimGüncelle(TBL_Egitimler e)
+        {
+            var updatedıtem = egıtım.TGetID(e.ID);
+            updatedıtem.BASLIK = e.BASLIK;
+            updatedıtem.ALTBASLIK1 = e.ALTBASLIK1;
+            updatedıtem.ALTBASLIK2 = e.ALTBASLIK2;
+            updatedıtem.NOT_ORT = e.NOT_ORT;
+            updatedıtem.TARİH = e.TARİH;
+            updatedıtem.DURUM = e.DURUM;
+
+            egıtım.TUpdate(updatedıtem);
+            return RedirectToAction("Egitim");
         }
         #endregion
 
