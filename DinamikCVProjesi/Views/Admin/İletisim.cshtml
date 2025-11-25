@@ -1,0 +1,52 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_İletisim>
+@{
+    ViewBag.Title = "İletisim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+
+                        </div>
+                        <div class="card-body">
+                            <h3>Gelen Mesajlar</h3>
+                            <br />
+                            @foreach (var item in Model)
+                            {
+                                <div class="timeline-item" style="background:#fff8f0; border-radius:10px; padding:1rem; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-left:2.5rem;">
+                                    <div style="display:flex; align-items:center; margin-bottom:0.5rem;">
+                                        <i class="fas fa-comment"
+                                           style="background: linear-gradient(135deg, #ffa85c, #ff7b2c);
+                                                  color: #fff; border-radius:50%; padding:10px; font-size:17px; margin-right:0.8rem;">
+                                        </i>
+                                        <span style="color:chocolate; font-weight:bold; margin-right:0.5rem;">@item.ADSOYAD</span>
+
+                                    </div>
+                                    <span style="color:#555; margin-bottom:1rem">Konu: @item.KONU</span>
+                                    
+                                    <div style="margin:15px 0; color:#444;">
+                                        @item.MESAJ
+                                    </div>
+                                    <div style="font-size:0.85rem; color:#888;">
+                                        <i class="far fa-calendar" style="margin-right:4px;"></i> @(item.TARİH?.ToString("dd.MM.yyyy")) | <span>@item.MAİL</span>
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

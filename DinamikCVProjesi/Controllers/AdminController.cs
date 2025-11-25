@@ -90,7 +90,7 @@ namespace DinamikCVProjesi.Controllers
         [HttpPost]
         public ActionResult DeneyimEkle(TBL_Deneyimler d)
         {
-            if (!ModelState.IsValid)  return View(d);
+            if (!ModelState.IsValid) return View(d);
             deneyimler.TAdd(d);
             return RedirectToAction("Deneyim");
         }
@@ -227,6 +227,162 @@ namespace DinamikCVProjesi.Controllers
 
             egıtım.TUpdate(updatedıtem);
             return RedirectToAction("Egitim");
+        }
+        #endregion
+
+        #endregion
+
+        #region Beceriler
+
+        BecerilerRepository beceriler = new BecerilerRepository();
+        public ActionResult Beceriler()
+        {
+            var values = beceriler.List();
+            return View(values);
+        }
+
+        #region EKLE
+        [HttpGet]
+        public ActionResult BeceriEkle() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult BeceriEkle(TBL_Beceriler b)
+        {
+            beceriler.TAdd(b);
+            return RedirectToAction("Beceriler");
+        }
+        #endregion
+
+        #region SİL
+        public ActionResult BeceriSil(int id)
+        {
+            var deletedıtem = beceriler.TGetID(id);
+            beceriler.TDelete(deletedıtem);
+            return RedirectToAction("Beceriler");
+        }
+        #endregion
+
+        #region GÜNCELLE
+        [HttpGet]
+        public ActionResult BeceriGetir(int id)
+        {
+            var getbeceri = beceriler.TGetID(id);
+            return View("BeceriGetir", getbeceri);
+        }
+        [HttpPost]
+        public ActionResult BeceriGüncelle(TBL_Beceriler b)
+        {
+            var updatedBeceri = beceriler.TGetID(b.ID);
+            updatedBeceri.BECERİLER = b.BECERİLER;
+            updatedBeceri.DURUM = b.DURUM;
+            beceriler.TUpdate(updatedBeceri);
+            return RedirectToAction("Beceriler");
+        }
+        #endregion
+
+        #endregion
+
+        #region SertifikaBölümü
+        SertifikaRepository sertifika = new SertifikaRepository();
+        public ActionResult Sertifikalar()
+        {
+            var values = sertifika.List();
+            return View(values);
+        }
+
+        #region EKLE
+        [HttpGet]
+        public ActionResult SertifikaEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SertifikaEkle(TBL_Sertifikalar s)
+        {
+            sertifika.TAdd(s);
+            return RedirectToAction("Sertifikalar");
+        }
+        #endregion
+
+        #region SerifikaGüncelle
+        [HttpGet]
+        public ActionResult SertifikaGetir(int id)
+        {
+            var values = sertifika.TGetID(id);
+            return View("SertifikaGetir", values);
+        }
+        [HttpPost]
+        public ActionResult SertifikaGüncelle(TBL_Sertifikalar s)
+        {
+            var updatedıtem = sertifika.TGetID(s.ID);
+            updatedıtem.ACIKLAMA = s.ACIKLAMA;
+            updatedıtem.BASLIK = s.BASLIK;
+            updatedıtem.TARİH = s.TARİH;
+            updatedıtem.DURUM = s.DURUM;
+            sertifika.TUpdate(updatedıtem);
+            return RedirectToAction("Sertifikalar");
+        }
+        #endregion
+
+        #endregion
+
+        #region İletişimBölümü
+        İletisimRepository iletisim = new İletisimRepository();
+        public ActionResult İletisim()
+        {
+            var values = iletisim.List();
+            return View(values);
+        }
+        #endregion
+
+        #region Hobilerim
+        HobilerRepository hobiler = new HobilerRepository();
+        public ActionResult Hobilerim()
+        {
+            var values = hobiler.List();
+            return View(values);
+        }
+        #region EKLE
+        [HttpGet]
+        public ActionResult HobiEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult HobiEkle(TBL_Hobilerim h)
+        {
+            h.ACIKLAMA2 = null;
+            hobiler.TAdd(h);
+            return RedirectToAction("Hobilerim");
+        }
+        #endregion
+
+        #region SİL
+        public ActionResult HobiSil(int id)
+        {
+            var deletedıtem = hobiler.TGetID(id);
+            hobiler.TDelete(deletedıtem);
+            return RedirectToAction("Hobilerim");
+        }
+        #endregion
+
+        #region GÜNCELLE
+        [HttpGet]
+        public ActionResult HobiGetir(int id)
+        {
+            var gethobi = hobiler.TGetID(id);
+            return View("HobiGetir", gethobi);
+        }
+        [HttpPost]
+        public ActionResult HobiGüncelle(TBL_Hobilerim h)
+        {
+            var updatedhobi = hobiler.TGetID(h.ID);
+            updatedhobi.ACIKLAMA1 = h.ACIKLAMA1;
+            updatedhobi.DURUM = h.DURUM;
+            hobiler.TUpdate(updatedhobi);
+            return RedirectToAction("Hobilerim");
         }
         #endregion
 

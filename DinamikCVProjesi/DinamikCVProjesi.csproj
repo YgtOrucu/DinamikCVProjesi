@@ -2374,6 +2374,16 @@
     <Content Include="Views\Admin\Egitim.cshtml" />
     <Content Include="Views\Admin\EgitimEkle.cshtml" />
     <Content Include="Views\Admin\EgitimGetir.cshtml" />
+    <Content Include="Views\Admin\Beceriler.cshtml" />
+    <Content Include="Views\Admin\Sertifikalar.cshtml" />
+    <Content Include="Views\Admin\SertifikaGetir.cshtml" />
+    <Content Include="Views\Admin\SertifikaEkle.cshtml" />
+    <Content Include="Views\Admin\İletisim.cshtml" />
+    <Content Include="Views\Admin\Hobilerim.cshtml" />
+    <Content Include="Views\Admin\HobiEkle.cshtml" />
+    <Content Include="Views\Admin\HobiGetir.cshtml" />
+    <Content Include="Views\Admin\BeceriGetir.cshtml" />
+    <Content Include="Views\Admin\BeceriEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

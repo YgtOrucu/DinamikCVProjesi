@@ -1,9 +1,10 @@
 ﻿@using DinamikCVProjesi.Models.Entity
-@model List<TBL_Hakkımda>
+@model List<TBL_Beceriler>
 @{
-    ViewBag.Title = "Hakkımda";
+    ViewBag.Title = "Beceriler";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -33,22 +34,17 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Hakkımda</h3>
+                                <h3 class="card-title">Becerilerim</h3>
                             </div>
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>AD</th>
-                                            <th>SOYAD</th>
-                                            <th>ADRES</th>
-                                            <th>TELEFON</th>
-                                            <th>MAİL</th>
-                                            <th>ACIKLAMA</th>
+                                            <th>BECERİ</th>
                                             <th>DURUM</th>
-                                            <th>DÜZENLE</th>
-                                            <th>SİL</th>
+                                            <th style="width:10%">DÜZENLE</th>
+                                            <th style="width:10%">SİL</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,27 +52,7 @@
                                         {
                                             <tr>
                                                 <td>@item.ID</td>
-                                                <td>@item.AD</td>
-                                                <td>@item.SOYAD</td>
-                                                @if (item.ADRES.Length >= 20)
-                                                {
-                                                    <td>@item.ADRES.Substring(0, 20) ...</td>
-                                                }
-                                                else
-                                                {
-                                                    <td>@item.ADRES</td>
-                                                }
-                                                <td>@item.TELEFON</td>
-                                                <td>@item.MAİL</td>
-
-                                                @if (item.ACIKLAMA.Length >= 20)
-                                                {
-                                                    <td>@item.ACIKLAMA.Substring(0, 20) ...</td>
-                                                }
-                                                else
-                                                {
-                                                    <td>@item.ACIKLAMA</td>
-                                                }
+                                                <td>@item.BECERİLER</td>  
                                                 <td>
                                                     @if ((bool)item.DURUM)
                                                     {
@@ -87,13 +63,14 @@
                                                         <span class="badge bg-danger text-sm">Pasif</span>
                                                     }
                                                 </td>
-                                                <td><a href="~/Admin/HakkımdaGetir/@item.ID" class="btn btn-warning btn-sm">Düzenle</a></td>
-                                                <td><a href="~/Admin/HakkımdaSil/@item.ID" class="btn btn-danger btn-sm">Sil</a></td>
+
+                                                <td><a href="~/Admin/BeceriGetir/@item.ID" class="btn btn-warning btn-sm">Düzenle</a></td>
+                                                <td><a href="~/Admin/BeceriSil/@item.ID" class="btn btn-danger btn-sm">Sil</a></td>
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
-                                <a href="~/Admin/HakkımdaEkle" class="btn btn-success btn-sm" style="margin-top:15px">Ekle</a>
+                                <a href="~/Admin/BeceriEkle" class="btn btn-success btn-sm" style="margin-top:15px">Ekle</a>
                             </div>
                         </div>
                     </div>
