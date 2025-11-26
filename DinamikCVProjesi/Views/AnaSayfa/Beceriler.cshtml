@@ -1,19 +1,55 @@
 ﻿@using DinamikCVProjesi.Models.Entity
 @model List<TBL_Beceriler>
 
-<br />
-<h3 style="margin:3rem 0">BECERİLERİM</h3>
-<div>
-    @foreach (var item in Model)
+<style>
+    .beceri-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    .beceri-card {
+        background: rgba(255,255,255,0.05);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        backdrop-filter: blur(4px);
+        transition: 0.3s ease;
+        border: 1px solid rgba(255,255,255,0.06);
+    }
+
+        .beceri-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.12);
+        }
+
+    .beceri-icon {
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .beceri-text {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .mb-1{
+        margin-top:7rem;
+    }
+</style>
+
+<h2 class="mb-1">BECERİLERİM</h2>
+
+<div class="beceri-grid">
+    @foreach (var p in Model)
     {
-        <div class="">
-            <div class="skill-head">
-                <div class="skill-title">
-                    <ul>
-                        <li class="skill-name">@item.BECERİLER</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="beceri-card">
+            <div class="beceri-icon">⭐</div>
+            <div class="beceri-text">@p.BECERİLER</div>
         </div>
     }
 </div>

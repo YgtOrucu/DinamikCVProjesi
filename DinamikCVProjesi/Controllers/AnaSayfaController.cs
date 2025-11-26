@@ -13,9 +13,10 @@ namespace DinamikCVProjesi.Controllers
     {
         // GET: AnaSayfa
         DB_UdemyAdminPanelliDinamikCVEntities cVEntities = new DB_UdemyAdminPanelliDinamikCVEntities();
+        LoginController login = new LoginController();
+        
 
         //Hakkımda
-        
         public ActionResult Index()
         {
             var values = cVEntities.TBL_Hakkımda.Where(x=>x.DURUM == true).ToList();
@@ -81,6 +82,18 @@ namespace DinamikCVProjesi.Controllers
         {
             var sosyalmedya = cVEntities.TBL_SosyalMedya.Where(x => x.DURUM == true).ToList();
             return PartialView(sosyalmedya);
+        }
+        [ChildActionOnly]
+        public ActionResult AdminPaneliButonu()
+        {
+            var kullaniciAd = Session["KULLANICIAD"]?.ToString();
+
+            if (kullaniciAd != null)
+            {
+                return PartialView();
+            }
+
+            return new EmptyResult();
         }
         [ChildActionOnly]
         [HttpGet]

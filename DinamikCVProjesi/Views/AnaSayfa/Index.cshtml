@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Muhsin Yiğit Örücü - Web Application</title>
+    <title>CV</title>
     <link rel="icon" type="image/x-icon" href="~/İmages/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
@@ -26,7 +26,6 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="sideNav" style="background-color:darkred">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Muhsin Yiğit Örücü</span>
             @foreach (var item in Model)
             {
                 <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="@item.RESİM" alt="RESİM" /></span>
@@ -44,6 +43,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Hobİler</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Sertİfİkalar</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">İLETİŞİM</a></li>
+                @Html.Action("AdminPaneliButonu", "AnaSayfa")
             </ul>
         </div>
     </nav>

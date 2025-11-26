@@ -28,7 +28,7 @@ namespace DinamikCVProjesi.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(values.KULLANICIAD, false);
                     Session["KULLANICIAD"] = values.KULLANICIAD.ToString();
-                    return RedirectToAction("Hakkımda", "Admin");
+                    return RedirectToAction("Admin", "Admin");
 
                 }
                 else

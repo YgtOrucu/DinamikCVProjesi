@@ -100,6 +100,8 @@ namespace DinamikCVProjesi.Controllers
             updatedvalues.TELEFON = h.TELEFON;
             updatedvalues.MAİL = h.MAİL;
             updatedvalues.ACIKLAMA = h.ACIKLAMA;
+            updatedvalues.RESİM = h.RESİM;
+            updatedvalues.DOGUMTARİHİ = h.DOGUMTARİHİ;
             updatedvalues.DURUM = h.DURUM;
 
             hakkımda.TUpdate(updatedvalues);

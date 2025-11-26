@@ -23,6 +23,11 @@
             font-family: math;
             font-size: 25px;
         }
+
+        table td {
+            word-wrap: break-word;
+            max-width: 150px;
+        }
     </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -36,63 +41,69 @@
                                 <h3 class="card-title">Hakkımda</h3>
                             </div>
                             <div class="card-body">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>AD</th>
-                                            <th>SOYAD</th>
-                                            <th>ADRES</th>
-                                            <th>TELEFON</th>
-                                            <th>MAİL</th>
-                                            <th>ACIKLAMA</th>
-                                            <th>DURUM</th>
-                                            <th>DÜZENLE</th>
-                                            <th>SİL</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
+                                <div class="table-responsive p-0">
+                                    <table class="table table-bordered">
+                                        <thead>
                                             <tr>
-                                                <td>@item.ID</td>
-                                                <td>@item.AD</td>
-                                                <td>@item.SOYAD</td>
-                                                @if (item.ADRES.Length >= 20)
-                                                {
-                                                    <td>@item.ADRES.Substring(0, 20) ...</td>
-                                                }
-                                                else
-                                                {
-                                                    <td>@item.ADRES</td>
-                                                }
-                                                <td>@item.TELEFON</td>
-                                                <td>@item.MAİL</td>
-
-                                                @if (item.ACIKLAMA.Length >= 20)
-                                                {
-                                                    <td>@item.ACIKLAMA.Substring(0, 20) ...</td>
-                                                }
-                                                else
-                                                {
-                                                    <td>@item.ACIKLAMA</td>
-                                                }
-                                                <td>
-                                                    @if ((bool)item.DURUM)
+                                                <th>ID</th>
+                                                <th>AD</th>
+                                                <th>SOYAD</th>
+                                                <th>ADRES</th>
+                                                <th>TELEFON</th>
+                                                <th>MAİL</th>
+                                                <th>ACIKLAMA</th>
+                                                <th>RESİM</th>
+                                                <th>DOĞUM TARİHİ</th>
+                                                <th>DURUM</th>
+                                                <th>DÜZENLE</th>
+                                                <th>SİL</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>@item.ID</td>
+                                                    <td>@item.AD</td>
+                                                    <td>@item.SOYAD</td>
+                                                    @if (item.ADRES.Length >= 20)
                                                     {
-                                                        <span class="badge bg-success text-sm">Aktif</span>
+                                                        <td>@item.ADRES.Substring(0, 20) ...</td>
                                                     }
                                                     else
                                                     {
-                                                        <span class="badge bg-danger text-sm">Pasif</span>
+                                                        <td>@item.ADRES</td>
                                                     }
-                                                </td>
-                                                <td><a href="~/Admin/HakkımdaGetir/@item.ID" class="btn btn-warning btn-sm">Düzenle</a></td>
-                                                <td><a href="~/Admin/HakkımdaSil/@item.ID" class="btn btn-danger btn-sm">Sil</a></td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
+                                                    <td>@item.TELEFON</td>
+                                                    <td>@item.MAİL</td> @*https://i.hizliresim.com/lh4jm27.png*@
+
+                                                    @if (item.ACIKLAMA.Length >= 20)
+                                                    {
+                                                        <td>@item.ACIKLAMA.Substring(0, 20) ...</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td>@item.ACIKLAMA</td>
+                                                    }
+                                                    <td>@item.RESİM</td>
+                                                    <td>@(item.DOGUMTARİHİ?.ToShortDateString())</td>
+                                                    <td>
+                                                        @if ((bool)item.DURUM)
+                                                        {
+                                                            <span class="badge bg-success text-sm">Aktif</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="badge bg-danger text-sm">Pasif</span>
+                                                        }
+                                                    </td>
+                                                    <td><a href="~/Admin/HakkımdaGetir/@item.ID" class="btn btn-warning btn-sm">Düzenle</a></td>
+                                                    <td><a href="~/Admin/HakkımdaSil/@item.ID" class="btn btn-danger btn-sm">Sil</a></td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <a href="~/Admin/HakkımdaEkle" class="btn btn-success btn-sm" style="margin-top:15px">Ekle</a>
                             </div>
                         </div>
