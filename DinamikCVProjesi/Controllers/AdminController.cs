@@ -11,6 +11,8 @@ namespace DinamikCVProjesi.Controllers
 {
     public class AdminController : Controller
     {
+        DB_UdemyAdminPanelliDinamikCVEntities cVEntities = new DB_UdemyAdminPanelliDinamikCVEntities();
+
         #region HakkımdaBölümü
         HakkımdaRepository hakkımda = new HakkımdaRepository();
         public ActionResult Hakkımda()
@@ -243,7 +245,7 @@ namespace DinamikCVProjesi.Controllers
 
         #region EKLE
         [HttpGet]
-        public ActionResult BeceriEkle() 
+        public ActionResult BeceriEkle()
         {
             return View();
         }
@@ -423,6 +425,114 @@ namespace DinamikCVProjesi.Controllers
             updatedıtem.DURUM = s.DURUM;
             sosyalmedya.TUpdate(updatedıtem);
             return RedirectToAction("SosyalMedya");
+        }
+        #endregion
+
+        #endregion
+
+        #region DİLLER 
+        DillerRepository diller = new DillerRepository();
+        public ActionResult Diller()
+        {
+            var values = diller.List();
+            return View(values);
+        }
+
+        #region EKLE 
+        [HttpGet]
+        public ActionResult DilEkle()
+        {
+            ViewBag.DilBilgisi = cVEntities.TBL_DilBilgisi.Select(x => new SelectListItem
+            {
+                Value = x.ID.ToString(),
+                Text = x.ACIKLAMA
+            }).ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DilEkle(TBL_Diller d)
+        {
+            diller.TAdd(d);
+            return RedirectToAction("Diller");
+        }
+        #endregion
+
+        #region GÜNCELLE
+        [HttpGet]
+        public ActionResult DilGetir(int id)
+        {
+            var getıtem = diller.TGetID(id);
+            ViewBag.Seviye = cVEntities.TBL_DilBilgisi.Select(x => new SelectListItem
+            {
+                Value = x.ID.ToString(),
+                Text = x.ACIKLAMA
+            }).ToList();
+            return View("DilGetir", getıtem);
+        }
+        [HttpPost]
+        public ActionResult DilGüncelle(TBL_Diller d)
+        {
+            var updatedıtem = diller.TGetID(d.ID);
+            updatedıtem.AD = d.AD;
+            updatedıtem.OKUMA = d.OKUMA;
+            updatedıtem.YAZMA = d.YAZMA;
+            updatedıtem.KONUSMA = d.KONUSMA;
+            updatedıtem.DİNLEME = d.DİNLEME;
+            updatedıtem.DURUM = d.DURUM;
+            diller.TUpdate(updatedıtem);
+            return RedirectToAction("Diller");
+        }
+        #endregion
+
+
+
+
+
+
+        #endregion
+
+        #region Kurslar
+        KurslarRepository kurslar = new KurslarRepository();
+        public ActionResult Kurslar()
+        {
+            var values = kurslar.List();
+            return View(values);
+        }
+
+        #region EKLE
+        [HttpGet]
+        public ActionResult KursEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult KursEkle(TBL_Kurslar k)
+        {
+            kurslar.TAdd(k);
+            return RedirectToAction("Kurslar");
+        }
+
+
+
+        #endregion
+
+        #region GÜNCELLE
+        public ActionResult KursGetir(int id)
+        {
+            var getıtem = kurslar.TGetID(id);
+            return View("KursGetir", getıtem);
+        }
+        [HttpPost]
+        public ActionResult KursGüncelle(TBL_Kurslar k)
+        {
+            var updatedvalues = kurslar.TGetID(k.ID);
+            updatedvalues.BASLIK = k.BASLIK;
+            updatedvalues.ALTBASLIK = k.ALTBASLIK;
+            updatedvalues.ACIKLAMA = k.ACIKLAMA;
+            updatedvalues.TARİH = k.TARİH;
+            updatedvalues.DURUM = k.DURUM;
+            kurslar.TUpdate(updatedvalues);
+            return RedirectToAction("Kurslar");
         }
         #endregion
 

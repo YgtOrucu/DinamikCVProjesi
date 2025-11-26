@@ -1,0 +1,36 @@
+﻿@model DinamikCVProjesi.Models.Entity.TBL_Kurslar
+@{
+    ViewBag.Title = "KursEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kurs Ekle</h2>
+<br />
+
+<form action="~/Admin/KursEkle" method="post">
+    <label for="BASLIK">BASLIK</label>
+    <input type="text" id="BASLIK" name="BASLIK" class="form-control" style="width:60%" required />
+    <br />
+    <label for="ALTBASLIK">ALTBASLIK</label>
+    <input type="text" id="ALTBASLIK" name="ALTBASLIK" class="form-control" style="width:60%" required />
+    <br />
+    <label for="ACIKLAMA">ACIKLAMA</label>
+    <input type="text" id="ACIKLAMA" name="ACIKLAMA" class="form-control" style="width:60%" required />
+    <br />
+    <label for="TARİH">TARİH</label>
+    <input type="text" id="TARİH" name="TARİH" class="form-control" style="width:60%" required />
+    <br />
+    <label for="DURUM">DURUM</label>
+    <div class="form-check-inline">
+        <div class="form-check">
+            <input class="form-check-input" id="durumAktif" name="DURUM" type="radio" value="True">
+            <label class="form-check-label" for="durumAktif">Aktif</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" id="durumPasif" name="DURUM" type="radio" value="False">
+            <label class="form-check-label" for="durumPasif">Pasif</label>
+        </div>
+    </div>
+    <br />
+    <input type="submit" value="Ekle" class="btn btn-primary btn-sm" />
+</form>

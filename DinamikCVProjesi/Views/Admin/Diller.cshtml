@@ -1,0 +1,86 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Diller>
+@{
+    ViewBag.Title = "Diller";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        th {
+            background: #4e73df;
+            color: #fff;
+        }
+
+        .card-header {
+            background-color: lightgrey;
+            color: black;
+        }
+
+        .card-header {
+            font-family: math;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Diller</h3>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>AD</th>
+                                            <th>OKUMA</th>
+                                            <th>YAZMA</th>
+                                            <th>KONUSMA</th>
+                                            <th>DİNLEME</th>
+                                            <th>DURUM</th>
+                                            <th>DÜZENLE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.AD</td>
+                                                <td>@item.TBL_DilBilgisi.ACIKLAMA</td>
+                                                <td>@item.TBL_DilBilgisi1.ACIKLAMA</td>
+                                                <td>@item.TBL_DilBilgisi2.ACIKLAMA</td>
+                                                <td>@item.TBL_DilBilgisi3.ACIKLAMA</td>
+                                                <td>
+                                                    @if ((bool)item.DURUM)
+                                                    {
+                                                        <span class="badge bg-success text-sm">Aktif</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-danger text-sm">Pasif</span>
+                                                    }
+                                                </td>
+                                                <td><a href="~/Admin/DilGetir/@item.ID" class="btn btn-warning btn-sm">Düzenle</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                <a href="~/Admin/DilEkle" class="btn btn-success btn-sm" style="margin-top:15px">Ekle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

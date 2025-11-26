@@ -12,19 +12,13 @@ namespace DinamikCVProjesi.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Diller
+    public partial class TBL_Kurslar
     {
         public int ID { get; set; }
-        public string AD { get; set; }
-        public Nullable<int> OKUMA { get; set; }
-        public Nullable<int> YAZMA { get; set; }
-        public Nullable<int> KONUSMA { get; set; }
-        public Nullable<int> DİNLEME { get; set; }
+        public string BASLIK { get; set; }
+        public string ALTBASLIK { get; set; }
+        public string ACIKLAMA { get; set; }
+        public string TARİH { get; set; }
         public Nullable<bool> DURUM { get; set; }
-    
-        public virtual TBL_DilBilgisi TBL_DilBilgisi { get; set; }
-        public virtual TBL_DilBilgisi TBL_DilBilgisi1 { get; set; }
-        public virtual TBL_DilBilgisi TBL_DilBilgisi2 { get; set; }
-        public virtual TBL_DilBilgisi TBL_DilBilgisi3 { get; set; }
     }
 }

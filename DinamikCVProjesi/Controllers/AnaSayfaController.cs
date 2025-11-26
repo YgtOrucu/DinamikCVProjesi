@@ -31,11 +31,20 @@ namespace DinamikCVProjesi.Controllers
         }
         public PartialViewResult Diller()
         {
-            return PartialView();
+            var values = cVEntities.TBL_Diller.Where(y=>y.DURUM == true).Select(x => new DillerViewModel
+            {
+                AD = x.AD,
+                OKUMA = x.TBL_DilBilgisi.ACIKLAMA,
+                YAZMA = x.TBL_DilBilgisi1.ACIKLAMA,
+                KONUSMA = x.TBL_DilBilgisi2.ACIKLAMA,
+                DİNLEME = x.TBL_DilBilgisi3.ACIKLAMA
+            }).ToList();
+            return PartialView(values);
         }
         public PartialViewResult Kurslar()
         {
-            return PartialView();
+            var values = cVEntities.TBL_Kurslar.Where(x => x.DURUM == true).ToList();
+            return PartialView(values);
         }
         public PartialViewResult Yetenekler()
         {

@@ -51,6 +51,7 @@
           <Property Name="YAZMA" Type="int" />
           <Property Name="KONUSMA" Type="int" />
           <Property Name="DİNLEME" Type="int" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Egitimler">
           <Key>
@@ -98,6 +99,17 @@
           <Property Name="KONU" Type="varchar" MaxLength="100" />
           <Property Name="MESAJ" Type="varchar" MaxLength="1000" />
           <Property Name="TARİH" Type="date" />
+        </EntityType>
+        <EntityType Name="TBL_Kurslar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BASLIK" Type="nvarchar" MaxLength="80" />
+          <Property Name="ALTBASLIK" Type="nvarchar" MaxLength="50" />
+          <Property Name="ACIKLAMA" Type="nvarchar(max)" />
+          <Property Name="TARİH" Type="nvarchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_Sertifikalar">
           <Key>
@@ -186,6 +198,7 @@
           <EntitySet Name="TBL_Hakkımda" EntityType="Self.TBL_Hakkımda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Hobilerim" EntityType="Self.TBL_Hobilerim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_İletisim" EntityType="Self.TBL_İletisim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Kurslar" EntityType="Self.TBL_Kurslar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Sertifikalar" EntityType="Self.TBL_Sertifikalar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_SosyalMedya" EntityType="Self.TBL_SosyalMedya" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Yetenek" EntityType="Self.TBL_Yetenek" Schema="dbo" store:Type="Tables" />
@@ -326,6 +339,7 @@
             <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
             <End Role="TBL_Diller" EntitySet="TBL_Diller" />
           </AssociationSet>
+          <EntitySet Name="TBL_Kurslar" EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Kurslar" />
           </EntityContainer>
         <EntityType Name="TBL_Beceriler">
           <Key>
@@ -370,6 +384,7 @@
           <NavigationProperty Name="TBL_DilBilgisi1" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi1" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
           <NavigationProperty Name="TBL_DilBilgisi2" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi2" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
           <NavigationProperty Name="TBL_DilBilgisi3" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi3" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <Association Name="FK_TBL_Diller_TBL_DilBilgisi">
           <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" Role="TBL_DilBilgisi" Multiplicity="0..1" />
@@ -419,6 +434,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="TBL_Kurslar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BASLIK" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ALTBASLIK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TARİH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DURUM" Type="Boolean" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -551,11 +577,24 @@
           <EntitySetMapping Name="TBL_Diller">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller">
               <MappingFragment StoreEntitySet="TBL_Diller">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="DİNLEME" ColumnName="DİNLEME" />
                 <ScalarProperty Name="KONUSMA" ColumnName="KONUSMA" />
                 <ScalarProperty Name="YAZMA" ColumnName="YAZMA" />
                 <ScalarProperty Name="OKUMA" ColumnName="OKUMA" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Kurslar">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Kurslar">
+              <MappingFragment StoreEntitySet="TBL_Kurslar">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="ALTBASLIK" ColumnName="ALTBASLIK" />
+                <ScalarProperty Name="BASLIK" ColumnName="BASLIK" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

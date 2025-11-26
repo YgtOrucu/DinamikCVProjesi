@@ -1,0 +1,90 @@
+﻿@model DinamikCVProjesi.Models.Entity.TBL_Diller
+@{
+    ViewBag.Title = "DilGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>DilGetir</h2>
+
+@using (Html.BeginForm("DilGüncelle", "Admin", FormMethod.Post))
+{
+    <style>
+        .radiobutton{
+            display:flex;
+            column-gap:15px;
+        }
+    </style>
+
+
+
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @style = "width:60%", @readonly = "readonly" })
+    <br />
+
+    @Html.LabelFor(x => x.AD)
+    @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @style = "width:60%" })
+    <br />
+
+    @Html.LabelFor(x => x.OKUMA)
+    <div class="radiobutton">
+        @foreach (var item in ViewBag.Seviye as IEnumerable<SelectListItem>)
+        {
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.OKUMA, item.Value, new { @class = "form-check-input", id = "okuma_" + item.Value })
+                <label class="form-check-label" for="@("okuma_" + item.Value)">@item.Text</label>
+            </div>
+        }
+    </div>
+    <br />
+
+    @Html.LabelFor(x => x.YAZMA)
+    <div class="radiobutton">
+        @foreach (var item in ViewBag.Seviye as IEnumerable<SelectListItem>)
+        {
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.YAZMA, item.Value, new { @class = "form-check-input", id = "yazma_" + item.Value })
+                <label class="form-check-label" for="@("yazma_" + item.Value)">@item.Text</label>
+            </div>
+        }
+    </div>
+    <br />
+
+    @Html.LabelFor(x => x.KONUSMA)
+    <div class="radiobutton">
+        @foreach (var item in ViewBag.Seviye as IEnumerable<SelectListItem>)
+        {
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.KONUSMA, item.Value, new { @class = "form-check-input", id = "konusma_" + item.Value })
+                <label class="form-check-label" for="@("konusma_" + item.Value)">@item.Text</label>
+            </div>
+        }
+    </div>
+    <br />
+
+    @Html.LabelFor(x => x.DİNLEME)
+    <div class="radiobutton">
+        @foreach (var item in ViewBag.Seviye as IEnumerable<SelectListItem>)
+        {
+            <div class="form-check">
+                @Html.RadioButtonFor(x => x.DİNLEME, item.Value, new { @class = "form-check-input", id = "dinleme_" + item.Value })
+                <label class="form-check-label" for="@("dinleme_" + item.Value)">@item.Text</label>
+            </div>
+        }
+    </div>
+    <br />
+
+    @Html.LabelFor(x => x.DURUM)
+    <div class="radiobutton">
+        <div class="form-check">
+            @Html.RadioButtonFor(x => x.DURUM, true, new { @class = "form-check-input", id = "durumAktif" })
+            <label class="form-check-label" for="durumAktif">Aktif</label>
+        </div>
+        <div class="form-check">
+            @Html.RadioButtonFor(x => x.DURUM, false, new { @class = "form-check-input", id = "durumPasif" })
+            <label class="form-check-label" for="durumPasif">Pasif</label>
+        </div>
+    </div>
+    <br />
+
+    <input type="submit" value="Güncelle" class="btn btn-primary btn-sm" />
+}

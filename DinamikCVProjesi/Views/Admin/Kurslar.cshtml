@@ -1,0 +1,82 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_Kurslar>
+@{
+    ViewBag.Title = "Kurslar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            @foreach (var item in Model)
+                            {
+                                <div class="tab-pane" id="timeline">
+                                    <div class="timeline timeline-inverse">
+                                        <div class="time-label">
+                                            <span class="bg-success small">
+                                                @item.TARİH
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <i class="fas fa-chalkboard-teacher"
+                                               style="background: linear-gradient(135deg, #6a5af9, #8d73ff);
+                                                  color: #fff;
+                                                  border-radius: 10px;
+                                                  box-shadow: 0 6px 14px rgba(106, 90, 249, 0.35);
+                                                  font-size: 17px;">
+                                            </i>
+
+                                            <div class="timeline-item">
+                                                @if ((bool)item.DURUM)
+                                                {
+                                                    <span class="time badge bg-success text-xs" style="margin:3px 10px">Aktif</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="time badge bg-danger text-xs" style="margin:3px 10px">Pasif</span>
+                                                }
+                                                <h3 class="timeline-header" style="font-weight:bold;font-style:italic">@item.BASLIK</h3>
+                                                <h6 class="timeline-header" style="font-weight:bold;font-style:italic">@item.ALTBASLIK</h6>
+                                                @if (item.ACIKLAMA.Length > 250)
+                                                {
+                                                    <div class="timeline-body" style="font-family:auto">
+                                                        @item.ACIKLAMA.Substring(0, 250)
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="timeline-body" style="font-family:auto">
+                                                        @item.ACIKLAMA
+                                                    </div>
+                                                }
+                                                <div class="timeline-footer">
+                                                    <a href="~/Admin/KursGetir/@item.ID" class="btn btn-primary btn-sm">Düzenle</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                            }
+                        </div>
+                        <div style="margin:0 1rem 1rem 1rem;">
+                            <a href="~/Admin/KursEkle"
+                               class="btn btn-sm" style="background-color: gold;color: brown; font-weight:bold">
+                                Kurs Ekle
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

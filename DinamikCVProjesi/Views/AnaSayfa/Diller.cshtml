@@ -1,4 +1,6 @@
-﻿<section class="resume-section" id="language">
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<DillerViewModel>
+<section class="resume-section" id="language">
     <div class="resume-section-content">
         <h2 class="mb-5">DİLLER</h2>
 
@@ -14,24 +16,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>İngilizce</td>
-                    <td>B2</td>
-                    <td>B1</td>
-                    <td>C1</td>
-                    <td>B2</td>
-                </tr>
-                <tr>
-                    <td>Almanca</td>
-                    <td>A2</td>
-                    <td>A2</td>
-                    <td>B1</td>
-                    <td>A2</td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.AD</td>
+                        <td>@item.OKUMA</td>
+                        <td>@item.YAZMA</td>
+                        <td>@item.DİNLEME</td>
+                        <td>@item.KONUSMA</td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>
-
 </section>
 
 <style>
@@ -65,6 +62,7 @@
             font-weight: 600;
             text-align: left;
         }
+
         .language-table th.invisible-header {
             color: transparent; /* yazı görünmez */
             border: none; /* istersen border da kaldırabilirsin */
