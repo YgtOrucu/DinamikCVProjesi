@@ -1,7 +1,7 @@
 ﻿@using DinamikCVProjesi.Models.Entity
-@model List<TBL_SosyalMedya>
+@model List<TBL_Admin>
 @{
-    ViewBag.Title = "SosyalMedya";
+    ViewBag.Title = "Admin";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -89,16 +89,15 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Sosyal Medya</h3>
+                                <h3 class="card-title">Admin</h3>
                             </div>
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>AD</th>
-                                            <th>LİNK</th>
-                                            <th>İCON</th>
+                                            <th>KULLANICI ADI</th>
+                                            <th>ŞİFRE</th>
                                             <th>DURUM</th>
                                             <th>DÜZENLE</th>
                                         </tr>
@@ -108,9 +107,8 @@
                                         {
                                             <tr>
                                                 <td>@item.ID</td>
-                                                <td>@item.AD</td>
-                                                <td>@item.LİNK</td>
-                                                <td>@item.ICON</td>
+                                                <td>@item.KULLANICIAD</td>
+                                                <td>@item.SIFRE</td>
                                                 <td>
                                                     @if ((bool)item.DURUM)
                                                     {
@@ -122,7 +120,7 @@
                                                     }
                                                 </td>
                                                 <td>
-                                                    <a href="~/Admin/SosyalMedyaGetir/@item.ID"
+                                                    <a href="~/Admin/AdminGetir/@item.ID"
                                                        class="btn btn-warning btn-sm">Düzenle</a>
                                                 </td>
                                             </tr>
@@ -144,22 +142,17 @@
                         <h2 class="modal-title" id="modal1Label">Sosyal Medya Ekleme Paneli</h2>
                     </div>
 
-                    <form method="post" action="~/Admin/SosyalMedyaEkle">
+                    <form method="post" action="~/Admin/AdminEkle">
                         <div class="modal-body">
 
                             <div class="mb-3">
-                                <label for="AD" class="form-label">Ad</label>
-                                <input type="text" name="AD" id="AD" class="form-control" placeholder="Örn: Instagram">
+                                <label for="KULLANICIAD" class="form-label">Kullanıcı Adı</label>
+                                <input type="text" name="KULLANICIAD" id="KULLANICIAD" class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <label for="LİNK" class="form-label">Link</label>
-                                <input type="text" name="LİNK" id="LİNK" class="form-control" placeholder="https://...">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="ICON" class="form-label">Icon</label>
-                                <input type="text" name="ICON" id="ICON" class="form-control" placeholder="fa fa-instagram">
+                                <label for="SIFRE" class="form-label">Şifre</label>
+                                <input type="text" name="SIFRE" id="SIFRE" class="form-control">
                             </div>
                             <br />
                             <label for="DURUM" class="form-label">DURUM</label>
@@ -173,9 +166,7 @@
                                     <label class="form-check-label" for="durumPasif">Pasif</label>
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary btn-sm">Ekle</button>
                         </div>

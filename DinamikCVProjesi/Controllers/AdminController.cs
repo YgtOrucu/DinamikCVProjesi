@@ -13,6 +13,43 @@ namespace DinamikCVProjesi.Controllers
     {
         DB_UdemyAdminPanelliDinamikCVEntities cVEntities = new DB_UdemyAdminPanelliDinamikCVEntities();
 
+        #region AdminBölümü
+        AdminRepository admin = new AdminRepository();
+        public ActionResult Admin()
+        {
+            var values = admin.List();
+            return View(values);
+        }
+
+        #region EKLE 
+        [HttpPost]
+        public ActionResult AdminEkle(TBL_Admin a)
+        {
+            admin.TAdd(a);
+            return RedirectToAction("Admin");
+        }
+        #endregion
+
+        #region GÜNCELLE
+        [HttpGet]
+        public ActionResult AdminGetir(int id)
+        {
+            var values = admin.TGetID(id);
+            return View("AdminGetir", values);
+        }
+        [HttpPost]
+        public ActionResult AdminGüncelle(TBL_Admin a)
+        {
+            var updatedıtem = admin.TGetID(a.ID);
+            updatedıtem.KULLANICIAD = a.KULLANICIAD;
+            updatedıtem.SIFRE = a.SIFRE;
+            admin.TUpdate(updatedıtem);
+            return RedirectToAction("Admin");
+        }
+        #endregion
+
+        #endregion
+
         #region HakkımdaBölümü
         HakkımdaRepository hakkımda = new HakkımdaRepository();
         public ActionResult Hakkımda()
