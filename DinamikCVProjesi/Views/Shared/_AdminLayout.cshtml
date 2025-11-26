@@ -20,6 +20,25 @@
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .sidebar-link {
+            display: flex !important;
+            align-items: center !important;
+            column-gap: 12px !important;
+            padding: 8px 12px;
+        }
+
+            .sidebar-link p {
+                margin: 0 !important;
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+            .sidebar-link i {
+                width: 22px; /* ikon genişliği sabitlenince hizalar PERFECT */
+                text-align: center;
+            }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -47,76 +66,88 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/Hakkımda" class="nav-link">
-                                <p>
-                                    Hakkımda
-                                </p>
-                            </a>
-                        </li>
+
                         <li class="nav-item">
-                            <a href="~/Admin/Deneyim" class="nav-link">
-                                <p>
-                                    Deneyimler
-                                </p>
+                            <a href="~/Admin/Hakkımda" class="nav-link sidebar-link">
+                                <i class="fas fa-user-circle fa-lg text-info"></i>
+                                <p>Hakkımda</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/Egitim" class="nav-link">
-                                <p>
-                                    Eğitimlerim
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Deneyim" class="nav-link sidebar-link">
+                                <i class="fas fa-briefcase fa-lg text-info"></i>
+                                <p>Deneyimler</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <p>
-                                    Diller
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Egitim" class="nav-link sidebar-link">
+                                <i class="fas fa-graduation-cap fa-lg text-info"></i>
+                                <p>Eğitimlerim</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <p>
-                                    Kurslar
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Diller" class="nav-link sidebar-link">
+                                <i class="fas fa-language fa-lg text-info"></i>
+                                <p>Diller</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/Yetenek" class="nav-link">
-                                <p>
-                                    Yetenek
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Kurslar" class="nav-link sidebar-link">
+                                <i class="fas fa-chalkboard-teacher fa-lg text-info"></i>
+                                <p>Kurslar</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/Beceriler" class="nav-link">
-                                <p>
-                                    Beceriler
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Yetenek" class="nav-link sidebar-link">
+                                <i class="fas fa-lightbulb fa-lg text-info"></i>
+                                <p>Yetenek</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/Hobilerim" class="nav-link">
-                                <p>
-                                    Hobilerim
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Beceriler" class="nav-link sidebar-link">
+                                <i class="fas fa-tools fa-lg text-info"></i>
+                                <p>Beceriler</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/Sertifikalar" class="nav-link">
-                                <p>
-                                    Sertifikalar
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Hobilerim" class="nav-link sidebar-link">
+                                <i class="fas fa-gamepad fa-lg text-info"></i>
+                                <p>Hobilerim</p>
                             </a>
                         </li>
-                        <li class="nav-item has-treeview">
-                            <a href="~/Admin/İletisim" class="nav-link">
-                                <p>
-                                    İletişim
-                                </p>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/Sertifikalar" class="nav-link sidebar-link">
+                                <i class="fas fa-certificate fa-lg text-info"></i>
+                                <p>Sertifikalar</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/SosyalMedya" class="nav-link sidebar-link">
+                                <i class="fas fa-share-alt fa-lg text-info"></i>
+                                <p>Sosyal Medya</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Admin/İletisim" class="nav-link sidebar-link">
+                                <i class="fas fa-envelope fa-lg text-info"></i>
+                                <p>İletişim</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="~/Login/ÇıkısYap" class="nav-link sidebar-link">
+                                <i class="fas fa-sign-out-alt fa-lg text-info"></i>
+                                <p>Çıkış Yap</p>
                             </a>
                         </li>
                     </ul>

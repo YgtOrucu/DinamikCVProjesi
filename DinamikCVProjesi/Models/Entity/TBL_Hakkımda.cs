@@ -22,5 +22,7 @@ namespace DinamikCVProjesi.Models.Entity
         public string MAİL { get; set; }
         public string ACIKLAMA { get; set; }
         public Nullable<bool> DURUM { get; set; }
+        public string RESİM { get; set; }
+        public Nullable<System.DateTime> DOGUMTARİHİ { get; set; }
     }
 }

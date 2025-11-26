@@ -387,5 +387,45 @@ namespace DinamikCVProjesi.Controllers
         #endregion
 
         #endregion
+
+        #region SosyalMedyaBölümü
+        SosyalMedyaRepository sosyalmedya = new SosyalMedyaRepository();
+        public ActionResult SosyalMedya()
+        {
+            var values = sosyalmedya.List();
+            return View(values);
+        }
+
+        #region EKLE 
+        [HttpPost]
+        public ActionResult SosyalMedyaEkle(TBL_SosyalMedya s)
+        {
+            sosyalmedya.TAdd(s);
+            return RedirectToAction("SosyalMedya");
+        }
+        #endregion
+
+        #region GÜNCELLE
+        [HttpGet]
+        public ActionResult SosyalMedyaGetir(int id)
+        {
+            var getıtem = sosyalmedya.TGetID(id);
+            return View("SosyalMedyaGetir", getıtem);
+        }
+
+        [HttpPost]
+        public ActionResult SosyalMedyaGüncelle(TBL_SosyalMedya s)
+        {
+            var updatedıtem = sosyalmedya.TGetID(s.ID);
+            updatedıtem.AD = s.AD;
+            updatedıtem.LİNK = s.LİNK;
+            updatedıtem.ICON = s.ICON;
+            updatedıtem.DURUM = s.DURUM;
+            sosyalmedya.TUpdate(updatedıtem);
+            return RedirectToAction("SosyalMedya");
+        }
+        #endregion
+
+        #endregion
     }
 }

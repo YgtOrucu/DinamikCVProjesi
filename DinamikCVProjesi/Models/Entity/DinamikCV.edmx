@@ -34,6 +34,24 @@
           <Property Name="Kullanılan Diller" Type="varchar" MaxLength="250" />
           <Property Name="DURUM" Type="bit" />
         </EntityType>
+        <EntityType Name="TBL_DilBilgisi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ACIKLAMA" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="TBL_Diller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="15" />
+          <Property Name="OKUMA" Type="int" />
+          <Property Name="YAZMA" Type="int" />
+          <Property Name="KONUSMA" Type="int" />
+          <Property Name="DİNLEME" Type="int" />
+        </EntityType>
         <EntityType Name="TBL_Egitimler">
           <Key>
             <PropertyRef Name="ID" />
@@ -57,7 +75,9 @@
           <Property Name="TELEFON" Type="nvarchar" MaxLength="50" />
           <Property Name="MAİL" Type="nvarchar" MaxLength="50" />
           <Property Name="ACIKLAMA" Type="nvarchar(max)" />
+          <Property Name="RESİM" Type="varchar" MaxLength="100" />
           <Property Name="DURUM" Type="bit" />
+          <Property Name="DOGUMTARİHİ" Type="date" />
         </EntityType>
         <EntityType Name="TBL_Hobilerim">
           <Key>
@@ -89,6 +109,16 @@
           <Property Name="TARİH" Type="varchar" MaxLength="50" />
           <Property Name="DURUM" Type="bit" />
         </EntityType>
+        <EntityType Name="TBL_SosyalMedya">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="20" />
+          <Property Name="LİNK" Type="varchar" MaxLength="50" />
+          <Property Name="ICON" Type="varchar" MaxLength="30" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
         <EntityType Name="TBL_Yetenek">
           <Key>
             <PropertyRef Name="ID" />
@@ -98,16 +128,83 @@
           <Property Name="YUZDE" Type="varchar" MaxLength="3" />
           <Property Name="DURUM" Type="bit" />
         </EntityType>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi">
+          <End Role="TBL_DilBilgisi" Type="Self.TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Role="TBL_Diller" Type="Self.TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="OKUMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi1">
+          <End Role="TBL_DilBilgisi" Type="Self.TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Role="TBL_Diller" Type="Self.TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="YAZMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi2">
+          <End Role="TBL_DilBilgisi" Type="Self.TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Role="TBL_Diller" Type="Self.TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="KONUSMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi3">
+          <End Role="TBL_DilBilgisi" Type="Self.TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Role="TBL_Diller" Type="Self.TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="DİNLEME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DB_UdemyAdminPanelliDinamikCVModelStoreContainer">
           <EntitySet Name="TBL_Admin" EntityType="Self.TBL_Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Beceriler" EntityType="Self.TBL_Beceriler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Deneyimler" EntityType="Self.TBL_Deneyimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DilBilgisi" EntityType="Self.TBL_DilBilgisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_Diller" EntityType="Self.TBL_Diller" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Egitimler" EntityType="Self.TBL_Egitimler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Hakkımda" EntityType="Self.TBL_Hakkımda" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Hobilerim" EntityType="Self.TBL_Hobilerim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_İletisim" EntityType="Self.TBL_İletisim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Sertifikalar" EntityType="Self.TBL_Sertifikalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SosyalMedya" EntityType="Self.TBL_SosyalMedya" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_Yetenek" EntityType="Self.TBL_Yetenek" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi" Association="Self.FK_TBL_Diller_TBL_DilBilgisi">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi1" Association="Self.FK_TBL_Diller_TBL_DilBilgisi1">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi2" Association="Self.FK_TBL_Diller_TBL_DilBilgisi2">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi3" Association="Self.FK_TBL_Diller_TBL_DilBilgisi3">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -158,6 +255,8 @@
           <Property Name="MAİL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ACIKLAMA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DURUM" Type="Boolean" />
+          <Property Name="RESİM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DOGUMTARİHİ" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="TBL_Hobilerim">
           <Key>
@@ -208,7 +307,26 @@
           <EntitySet Name="TBL_Sertifikalar" EntityType="Self.TBL_Sertifikalar" />
           <EntitySet Name="TBL_Yetenek" EntityType="Self.TBL_Yetenek" />
           <EntitySet Name="TBL_Beceriler" EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Beceriler" />
-        </EntityContainer>
+          <EntitySet Name="TBL_SosyalMedya" EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_SosyalMedya" />
+          <EntitySet Name="TBL_DilBilgisi" EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" />
+          <EntitySet Name="TBL_Diller" EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller" />
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi" Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi1" Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi1">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi2" Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi2">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_Diller_TBL_DilBilgisi3" Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi3">
+            <End Role="TBL_DilBilgisi" EntitySet="TBL_DilBilgisi" />
+            <End Role="TBL_Diller" EntitySet="TBL_Diller" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="TBL_Beceriler">
           <Key>
             <PropertyRef Name="ID" />
@@ -217,7 +335,91 @@
           <Property Name="BECERİLER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="DURUM" Type="Boolean" />
         </EntityType>
-      </Schema>
+        <EntityType Name="TBL_SosyalMedya">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LİNK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DURUM" Type="Boolean" />
+          <Property Name="ICON" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TBL_DilBilgisi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ACIKLAMA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_Diller" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi" FromRole="TBL_DilBilgisi" ToRole="TBL_Diller" />
+          <NavigationProperty Name="TBL_Diller1" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi1" FromRole="TBL_DilBilgisi" ToRole="TBL_Diller" />
+          <NavigationProperty Name="TBL_Diller2" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi2" FromRole="TBL_DilBilgisi" ToRole="TBL_Diller" />
+          <NavigationProperty Name="TBL_Diller3" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi3" FromRole="TBL_DilBilgisi" ToRole="TBL_Diller" />
+        </EntityType>
+        <EntityType Name="TBL_Diller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="OKUMA" Type="Int32" />
+          <Property Name="YAZMA" Type="Int32" />
+          <Property Name="KONUSMA" Type="Int32" />
+          <Property Name="DİNLEME" Type="Int32" />
+          <NavigationProperty Name="TBL_DilBilgisi" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
+          <NavigationProperty Name="TBL_DilBilgisi1" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi1" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
+          <NavigationProperty Name="TBL_DilBilgisi2" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi2" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
+          <NavigationProperty Name="TBL_DilBilgisi3" Relationship="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi3" FromRole="TBL_Diller" ToRole="TBL_DilBilgisi" />
+        </EntityType>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi">
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" Role="TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller" Role="TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="OKUMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi1">
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" Role="TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller" Role="TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="YAZMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi2">
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" Role="TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller" Role="TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="KONUSMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_Diller_TBL_DilBilgisi3">
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" Role="TBL_DilBilgisi" Multiplicity="0..1" />
+          <End Type="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller" Role="TBL_Diller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DilBilgisi">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_Diller">
+              <PropertyRef Name="DİNLEME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -262,6 +464,8 @@
           <EntitySetMapping Name="TBL_Hakkımda">
             <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Hakkımda">
               <MappingFragment StoreEntitySet="TBL_Hakkımda">
+                <ScalarProperty Name="DOGUMTARİHİ" ColumnName="DOGUMTARİHİ" />
+                <ScalarProperty Name="RESİM" ColumnName="RESİM" />
                 <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
@@ -321,6 +525,37 @@
               <MappingFragment StoreEntitySet="TBL_Beceriler">
                 <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="BECERİLER" ColumnName="BECERİLER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SosyalMedya">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_SosyalMedya">
+              <MappingFragment StoreEntitySet="TBL_SosyalMedya">
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+                <ScalarProperty Name="LİNK" ColumnName="LİNK" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DilBilgisi">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi">
+              <MappingFragment StoreEntitySet="TBL_DilBilgisi">
+                <ScalarProperty Name="ACIKLAMA" ColumnName="ACIKLAMA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_Diller">
+            <EntityTypeMapping TypeName="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller">
+              <MappingFragment StoreEntitySet="TBL_Diller">
+                <ScalarProperty Name="DİNLEME" ColumnName="DİNLEME" />
+                <ScalarProperty Name="KONUSMA" ColumnName="KONUSMA" />
+                <ScalarProperty Name="YAZMA" ColumnName="YAZMA" />
+                <ScalarProperty Name="OKUMA" ColumnName="OKUMA" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

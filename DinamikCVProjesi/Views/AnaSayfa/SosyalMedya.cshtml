@@ -1,0 +1,11 @@
+﻿@using DinamikCVProjesi.Models.Entity
+@model List<TBL_SosyalMedya>
+
+<div class="social-icons">
+    @foreach (var item in Model)
+    {
+        <a class="social-icon" href="@(item.LİNK != null ? item.LİNK : "#")" target="_blank">
+            <i class="@item.ICON"></i>
+        </a>
+    }
+</div>

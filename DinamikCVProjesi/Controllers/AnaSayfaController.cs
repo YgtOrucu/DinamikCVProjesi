@@ -29,6 +29,14 @@ namespace DinamikCVProjesi.Controllers
             var egıtım = cVEntities.TBL_Egitimler.Where(x => x.DURUM == true).ToList();
             return PartialView(egıtım);
         }
+        public PartialViewResult Diller()
+        {
+            return PartialView();
+        }
+        public PartialViewResult Kurslar()
+        {
+            return PartialView();
+        }
         public PartialViewResult Yetenekler()
         {
             var yetenek = cVEntities.TBL_Yetenek.Where(x => x.DURUM == true).ToList();
@@ -49,6 +57,12 @@ namespace DinamikCVProjesi.Controllers
             var beceriler = cVEntities.TBL_Beceriler.Where(x => x.DURUM == true).ToList();
             return PartialView(beceriler);
         }
+        public PartialViewResult SosyalMedya()
+        {
+            var sosyalmedya = cVEntities.TBL_SosyalMedya.Where(x => x.DURUM == true).ToList();
+            return PartialView(sosyalmedya);
+        }
+
 
         [HttpGet]
         public PartialViewResult Iletısım()

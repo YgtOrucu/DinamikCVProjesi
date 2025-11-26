@@ -14,6 +14,13 @@
         <EntityTypeShape EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Sertifikalar" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Yetenek" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Beceriler" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_SosyalMedya" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_DilBilgisi" Width="1.5" PointX="7.375" PointY="7.375" />
+        <EntityTypeShape EntityType="DB_UdemyAdminPanelliDinamikCVModel.TBL_Diller" Width="1.5" PointX="9.625" PointY="7" />
+        <AssociationConnector Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi" />
+        <AssociationConnector Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi1" />
+        <AssociationConnector Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi2" />
+        <AssociationConnector Association="DB_UdemyAdminPanelliDinamikCVModel.FK_TBL_Diller_TBL_DilBilgisi3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

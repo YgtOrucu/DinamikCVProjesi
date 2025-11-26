@@ -34,5 +34,8 @@ namespace DinamikCVProjesi.Models.Entity
         public virtual DbSet<TBL_Sertifikalar> TBL_Sertifikalar { get; set; }
         public virtual DbSet<TBL_Yetenek> TBL_Yetenek { get; set; }
         public virtual DbSet<TBL_Beceriler> TBL_Beceriler { get; set; }
+        public virtual DbSet<TBL_SosyalMedya> TBL_SosyalMedya { get; set; }
+        public virtual DbSet<TBL_DilBilgisi> TBL_DilBilgisi { get; set; }
+        public virtual DbSet<TBL_Diller> TBL_Diller { get; set; }
     }
 }

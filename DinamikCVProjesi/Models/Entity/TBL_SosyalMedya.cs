@@ -12,14 +12,12 @@ namespace DinamikCVProjesi.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_Deneyimler
+    public partial class TBL_SosyalMedya
     {
         public int ID { get; set; }
-        public string BASLIK { get; set; }
-        public string ALTBASLIK { get; set; }
-        public string ACIKLAMA { get; set; }
-        public string TARİH { get; set; }
-        public string Kullanılan_Diller { get; set; }
+        public string AD { get; set; }
+        public string LİNK { get; set; }
         public Nullable<bool> DURUM { get; set; }
+        public string ICON { get; set; }
     }
 }

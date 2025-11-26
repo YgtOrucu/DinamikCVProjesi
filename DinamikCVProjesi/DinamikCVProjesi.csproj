@@ -159,6 +159,12 @@
     <Compile Include="Models\Entity\TBL_Deneyimler.cs">
       <DependentUpon>DinamikCV.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TBL_DilBilgisi.cs">
+      <DependentUpon>DinamikCV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\TBL_Diller.cs">
+      <DependentUpon>DinamikCV.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TBL_Egitimler.cs">
       <DependentUpon>DinamikCV.tt</DependentUpon>
     </Compile>
@@ -169,6 +175,9 @@
       <DependentUpon>DinamikCV.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBL_Sertifikalar.cs">
+      <DependentUpon>DinamikCV.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\TBL_SosyalMedya.cs">
       <DependentUpon>DinamikCV.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBL_Yetenek.cs">
@@ -185,6 +194,7 @@
     <Compile Include="Repository\HakkımdaRepository.cs" />
     <Compile Include="Repository\HobilerRepository.cs" />
     <Compile Include="Repository\SertifikaRepository.cs" />
+    <Compile Include="Repository\SosyalMedyaRepository.cs" />
     <Compile Include="Repository\YetenekRepository.cs" />
     <Compile Include="Repository\İletisimRepository.cs" />
   </ItemGroup>
@@ -2059,7 +2069,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="İmages\Cv.jpeg" />
     <EntityDeploy Include="Models\Entity\DinamikCV.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DinamikCV.Designer.cs</LastGenOutput>
@@ -2384,6 +2393,10 @@
     <Content Include="Views\Admin\HobiGetir.cshtml" />
     <Content Include="Views\Admin\BeceriGetir.cshtml" />
     <Content Include="Views\Admin\BeceriEkle.cshtml" />
+    <Content Include="Views\AnaSayfa\SosyalMedya.cshtml" />
+    <Content Include="Views\Admin\SosyalMedya.cshtml" />
+    <Content Include="Views\Admin\SosyalMedyaGetir.cshtml" />
+    <Content Include="Views\AnaSayfa\Diller.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
